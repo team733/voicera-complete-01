@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 interface Call {
   id: string;
-  number: string;
   time: string;
   status: 'booked' | 'dropped' | 'inquiry';
 }
