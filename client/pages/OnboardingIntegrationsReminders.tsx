@@ -29,8 +29,8 @@ export default function OnboardingIntegrationsReminders() {
 
   const handleToggle = () => {
     setWantsReminders(!wantsReminders);
-    if (!wantsReminders) {
-      setReminderTiming(""); // Reset timing when disabling reminders
+    if (wantsReminders) {
+      setReminderTiming(""); // Reset timing when switching to No
     }
   };
 
