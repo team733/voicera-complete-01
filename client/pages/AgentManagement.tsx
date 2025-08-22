@@ -1035,6 +1035,68 @@ const AgentManagement: React.FC = () => {
         )}
       </main>
 
+      {/* Test Call Modal */}
+      {showTestCallModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl w-[800px] p-5 flex flex-col items-center gap-6">
+            {/* Header */}
+            <div className="flex justify-between items-center w-full border-b border-gray-200 pb-5">
+              <h3 className="text-xl font-medium text-gray-800">Test Call</h3>
+              <button
+                onClick={() => setShowTestCallModal(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M13.3337 2.6665L2.66699 13.3332" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2.66699 2.6665L13.3337 13.3332" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* AI Agent Avatar and Info */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 bg-gray-200 rounded-full border-8 border-white overflow-hidden">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/efb5a3936a2c626b52636d88f4e15694738b6d87?width=128"
+                  alt="AI Agent"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <h4 className="text-xl font-medium text-black">AI Agent</h4>
+                <p className="text-base font-medium text-gray-500">Bella – Voicera AI</p>
+              </div>
+            </div>
+
+            {/* Audio Visualization */}
+            <div className="flex items-center justify-center gap-1 w-full px-5">
+              {Array.from({ length: 72 }, (_, i) => (
+                <div
+                  key={i}
+                  className={`w-1 rounded-full ${
+                    i < 32 ? 'bg-black' : 'bg-gray-300'
+                  }`}
+                  style={{
+                    height: `${Math.random() * 40 + 8}px`,
+                    animation: i < 32 ? `pulse ${Math.random() * 0.5 + 0.5}s infinite alternate` : 'none'
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* End Call Button */}
+            <button
+              onClick={() => setShowTestCallModal(false)}
+              className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center"
+            >
+              <svg width="36" height="36" viewBox="0 0 52 52" fill="none" style={{ transform: 'rotate(-45deg)' }}>
+                <path d="M35.5638 29.609L36.9347 30.1362C37.831 30.481 38.2792 30.6534 38.7229 30.6846C39.2789 30.7237 39.8348 30.6057 40.327 30.3441C40.7198 30.1354 41.0593 29.7959 41.7384 29.1168C42.7318 28.1234 43.2285 27.6267 43.4545 27.0188C43.7208 26.3027 43.6759 25.3706 43.3421 24.6834C43.0588 24.1 42.5704 23.6976 41.5938 22.8929C31.1979 14.3267 20.8021 14.3268 10.4063 22.8928C9.42957 23.6976 8.94119 24.1001 8.65793 24.6833C8.32407 25.3706 8.27934 26.3027 8.54542 27.0188C8.77159 27.6267 9.26824 28.1233 10.2616 29.1167C10.9408 29.7959 11.2803 30.1354 11.673 30.3442C12.1653 30.6058 12.7211 30.7237 13.2772 30.6845C13.7208 30.6534 14.169 30.481 15.0654 30.1362L16.4363 29.609C17.407 29.2356 17.8923 29.0489 18.2662 28.7399C18.6242 28.4442 18.9077 28.0689 19.0945 27.6439C19.2897 27.1998 19.3367 26.682 19.431 25.6462C19.5246 24.6151 19.5715 24.0996 19.7896 23.6305C19.983 23.2147 20.3444 22.7707 20.7125 22.4973C21.1277 22.1887 21.5528 22.0596 22.4034 21.8016C25.0491 20.9987 26.9509 20.9987 29.5968 21.8016C30.4471 22.0596 30.8724 22.1887 31.2875 22.4972C31.6557 22.7708 32.0172 23.2147 32.2104 23.6305C32.4285 24.0996 32.4754 24.6151 32.5691 25.6462C32.6633 26.682 32.7104 27.1999 32.9055 27.6439C33.0923 28.0689 33.3759 28.4443 33.7337 28.7399C34.1077 29.0489 34.5931 29.2356 35.5638 29.609Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Notification Popup */}
       {showNotifications && (
         <div className="fixed inset-0 bg-black bg-opacity-20 flex justify-end items-start pt-24 pr-16 z-50">
