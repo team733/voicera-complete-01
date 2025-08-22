@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import OnboardingLayout from "@/components/OnboardingLayout";
 
 export default function OnboardingIntegrationsReminders() {
-  const [wantsReminders, setWantsReminders] = useState(true);
+  const [wantsReminders, setWantsReminders] = useState(false);
   const [reminderTiming, setReminderTiming] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
