@@ -19,6 +19,7 @@ const CallLogs: React.FC = () => {
   const [showReplay, setShowReplay] = useState(false);
   const [selectedCall, setSelectedCall] = useState<CallLogEntry | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showNotifications, setShowNotifications] = useState(false);
 
   // Check if user is logged in
   useEffect(() => {
@@ -301,7 +302,10 @@ const CallLogs: React.FC = () => {
           
           <div className="flex items-center gap-8">
             {/* Agent Live */}
-            <div className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-lg">
+            <button
+              onClick={() => navigate('/agent-management')}
+              className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            >
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2426 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2426 22 18.1213 21.1213C19 20.2426 19 18.8284 19 16Z" stroke="#141B34" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -314,10 +318,13 @@ const CallLogs: React.FC = () => {
                 <path d="M10 17.5C10 17.5 10.6667 18 12 18C13.3333 18 14 17.5 14 17.5" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
               <span className="text-lg font-semibold text-black">Agent Live</span>
-            </div>
+            </button>
 
             {/* Notification Bell */}
-            <button className="relative">
+            <button
+              onClick={() => setShowNotifications(true)}
+              className="relative"
+            >
               <svg width="29" height="33" viewBox="0 0 29 33" fill="none">
                 <path d="M15.5 27C15.5 28.933 13.933 30.5 12 30.5C10.067 30.5 8.5 28.933 8.5 27" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M19.2311 27H4.76887C3.79195 27 3 26.208 3 25.2311C3 24.762 3.18636 24.3121 3.51809 23.9803L4.12132 23.3771C4.68393 22.8145 5 22.0514 5 21.2558V18.5C5 14.634 8.13401 11.5 12 11.5C15.866 11.5 19 14.634 19 18.5V21.2558C19 22.0514 19.3161 22.8145 19.8787 23.3771L20.4819 23.9803C20.8136 24.3121 21 24.762 21 25.2311C21 26.208 20.208 27 19.2311 27Z" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -493,6 +500,61 @@ const CallLogs: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Notification Popup */}
+      {showNotifications && (
+        <div className="fixed inset-0 bg-black bg-opacity-20 flex justify-end items-start pt-24 pr-16 z-50">
+          <div className="bg-white rounded-2xl w-[650px] max-h-[936px] overflow-y-auto shadow-lg">
+            {/* Header */}
+            <div className="flex justify-between items-center p-5 border-b border-gray-200">
+              <h3 className="text-xl font-medium text-gray-600">
+                Notifications <span className="text-gray-500">(6)</span>
+              </h3>
+              <button onClick={() => setShowNotifications(false)} className="text-gray-500 hover:text-gray-700">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M13.3337 2.6665L2.66699 13.3332" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2.66699 2.6665L13.3337 13.3332" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* Notifications */}
+            <div className="p-5 space-y-4">
+              {/* Sample Notifications */}
+              <div className="flex items-start gap-4 pb-4 border-b border-gray-200">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 0.666992C21.3637 0.666992 27.333 6.6362 27.333 14C27.3329 21.3637 21.3637 27.333 14 27.333C6.63629 27.333 0.667081 21.3636 0.666992 14C0.666992 6.63623 6.63624 0.667036 14 0.666992Z" fill="#22C55E"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xl text-black">
+                    Call Logged · <span className="text-gray-500">New call from +1 (555) 123-4567 has been logged.</span>
+                  </p>
+                  <p className="text-gray-500 text-sm mt-2">Today · 3:15 PM</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 pb-4 border-b border-gray-200">
+                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                    <path d="M13 0.333984C18.9709 0.333984 21.9565 0.333566 23.8115 2.18848C25.6664 4.04346 25.667 7.02899 25.667 13C25.667 18.9709 25.6663 21.9564 23.8115 23.8115C21.9565 25.6664 18.971 25.667 13 25.667C7.02888 25.667 4.04348 25.6665 2.18848 23.8115C0.333558 21.9565 0.333008 18.971 0.333008 13C0.333008 7.02899 0.333507 4.04346 2.18848 2.18848C4.04349 0.333612 7.02901 0.333984 13 0.333984Z" fill="#007AFF"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xl text-black">
+                    Transcript Available · <span className="text-gray-500">Call transcript ready for review.</span>
+                  </p>
+                  <p className="text-gray-500 text-sm mt-2">Today · 3:10 PM</p>
+                  <button className="bg-black text-white px-5 py-2 rounded-lg text-xs font-semibold mt-3">
+                    View Transcript
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Popups */}
       {showTranscript && renderTranscriptPopup()}
