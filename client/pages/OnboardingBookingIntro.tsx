@@ -4,6 +4,10 @@ import OnboardingLayout from "@/components/OnboardingLayout";
 export default function OnboardingBookingIntro() {
   const navigate = useNavigate();
 
+  const handlePrevious = () => {
+    navigate('/onboarding/ai-greeting');
+  };
+
   const handleNext = () => {
     navigate('/onboarding/booking-services');
   };
@@ -13,9 +17,10 @@ export default function OnboardingBookingIntro() {
       step={3}
       totalSteps={5}
       completionPercentage={48}
+      onPrevious={handlePrevious}
       onNext={handleNext}
       nextButtonText="Let's go"
-      showPrevious={false}
+      showPrevious={true}
     >
       <div className="flex flex-col items-center gap-8">
         {/* Calendar Icon */}
