@@ -4,6 +4,19 @@ import { useNavigate } from 'react-router-dom';
 const AgentManagement: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basic-info');
+  const [isAgentLive, setIsAgentLive] = useState(true);
+  const [faqs, setFaqs] = useState([
+    { id: 1, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
+    { id: 2, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
+    { id: 3, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
+    { id: 4, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
+    { id: 5, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false }
+  ]);
+  const [newQuestion, setNewQuestion] = useState('');
+  const [newAnswer, setNewAnswer] = useState('');
+  const [dailySummary, setDailySummary] = useState(true);
+  const [emailConfirmations, setEmailConfirmations] = useState(true);
+  const [autoReminders, setAutoReminders] = useState(true);
 
   // Check if user is logged in
   useEffect(() => {
@@ -202,6 +215,263 @@ const AgentManagement: React.FC = () => {
                 </svg>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderFAQs = () => (
+    <div className="space-y-5">
+      {/* Section Header */}
+      <div className="flex justify-between items-center">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M16.3083 4.38394C15.7173 4.38394 15.4217 4.38394 15.1525 4.28405C15.1151 4.27017 15.0783 4.25491 15.042 4.23828C14.781 4.11855 14.5721 3.90959 14.1541 3.49167C13.1922 2.52977 12.7113 2.04882 12.1195 2.00447C12.04 1.99851 11.96 1.99851 11.8805 2.00447C11.2887 2.04882 10.8077 2.52977 9.84585 3.49166C9.42793 3.90959 9.21897 4.11855 8.95797 4.23828C8.92172 4.25491 8.88486 4.27017 8.84747 4.28405C8.57825 4.38394 8.28273 4.38394 7.69171 4.38394H7.58269C6.07478 4.38394 5.32083 4.38394 4.85239 4.85239C4.38394 5.32083 4.38394 6.07478 4.38394 7.58269V7.69171C4.38394 8.28273 4.38394 8.57825 4.28405 8.84747C4.27017 8.88486 4.25491 8.92172 4.23828 8.95797C4.11855 9.21897 3.90959 9.42793 3.49166 9.84585C2.52977 10.8077 2.04882 11.2887 2.00447 11.8805C1.99851 11.96 1.99851 12.04 2.00447 12.1195C2.04882 12.7113 2.52977 13.1922 3.49166 14.1541C3.90959 14.5721 4.11855 14.781 4.23828 15.042C4.25491 15.0783 4.27017 15.1151 4.28405 15.1525C4.38394 15.4217 4.38394 15.7173 4.38394 16.3083V16.4173C4.38394 17.9252 4.38394 18.6792 4.85239 19.1476C5.32083 19.6161 6.07478 19.6161 7.58269 19.6161H7.69171C8.28273 19.6161 8.57825 19.6161 8.84747 19.716C8.88486 19.7298 8.92172 19.7451 8.95797 19.7617C9.21897 19.8815 9.42793 20.0904 9.84585 20.5083C10.8077 21.4702 11.2887 21.9512 11.8805 21.9955C11.96 22.0015 12.0399 22.0015 12.1195 21.9955C12.7113 21.9512 13.1922 21.4702 14.1541 20.5083C14.5721 20.0904 14.781 19.8815 15.042 19.7617C15.0783 19.7451 15.1151 19.7298 15.1525 19.716C15.4217 19.6161 15.7173 19.6161 16.3083 19.6161H16.4173C17.9252 19.6161 18.6792 19.6161 19.1476 19.1476C19.6161 18.6792 19.6161 17.9252 19.6161 16.4173V16.3083C19.6161 15.7173 19.6161 15.4217 19.716 15.1525C19.7298 15.1151 19.7451 15.0783 19.7617 15.042C19.8815 14.781 20.0904 14.5721 20.5083 14.1541C21.4702 13.1922 21.9512 12.7113 21.9955 12.1195C22.0015 12.0399 22.0015 11.96 21.9955 11.8805C21.9512 11.2887 21.4702 10.8077 20.5083 9.84585C20.0904 9.42793 19.8815 9.21897 19.7617 8.95797C19.7451 8.92172 19.7298 8.88486 19.716 8.84747C19.6161 8.57825 19.6161 8.28273 19.6161 7.69171V7.58269C19.6161 6.07478 19.6161 5.32083 19.1476 4.85239C18.6792 4.38394 17.9252 4.38394 16.4173 4.38394H16.3083Z" stroke="black" strokeWidth="1.5"/>
+              <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="black" strokeWidth="1.5"/>
+            </svg>
+            <h2 className="text-xl font-semibold text-black">FAQs</h2>
+          </div>
+          <p className="text-lg font-semibold text-gray-500">Manage the information your AI agent uses to answer questions accurately.</p>
+        </div>
+        <div className="flex items-center gap-3">
+          <button className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-xl bg-white">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.6747 1.66699V4.27715C16.6747 4.52203 16.3685 4.63289 16.2117 4.44477C14.6858 2.73991 12.4684 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003" stroke="#141B34" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="text-base font-medium text-black">Refresh</span>
+          </button>
+          <button className="flex items-center gap-3 px-4 py-2 bg-black text-white rounded-xl">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <g clipPath="url(#clip0_60_47)">
+                <path d="M16.875 6.50859V16.25C16.875 16.4158 16.8092 16.5747 16.6919 16.6919C16.5747 16.8092 16.4158 16.875 16.25 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V3.75C3.125 3.58424 3.19085 3.42527 3.30806 3.30806C3.42527 3.19085 3.58424 3.125 3.75 3.125H13.4914C13.6569 3.12508 13.8157 3.19082 13.9328 3.30781L16.6922 6.06719C16.8092 6.18431 16.8749 6.34305 16.875 6.50859Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6.25 16.875V11.875C6.25 11.7092 6.31585 11.5503 6.43306 11.4331C6.55027 11.3158 6.70924 11.25 6.875 11.25H13.125C13.2908 11.25 13.4497 11.3158 13.5669 11.4331C13.6842 11.5503 13.75 11.7092 13.75 11.875V16.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.875 5.625H7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_60_47">
+                  <rect width="20" height="20" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <span className="text-base font-medium">Save Changes</span>
+          </button>
+        </div>
+      </div>
+
+      {/* FAQs Content */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-5">
+        <div className="space-y-3">
+          {/* FAQ Label */}
+          <h3 className="text-lg font-semibold text-black mb-3">FAQ</h3>
+
+          {/* FAQ Items */}
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <div key={faq.id} className="flex items-start gap-5">
+                <div className="w-6 h-6 border-2 border-gray-200 rounded-sm mt-1 flex-shrink-0"></div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-semibold text-black mb-1">{faq.question}</h4>
+                  <p className="text-sm font-semibold text-gray-500">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Add New FAQ Section */}
+          <div className="flex gap-5 pt-5">
+            <div className="flex-1">
+              <label className="block text-lg font-semibold text-black mb-3">Question</label>
+              <input
+                type="text"
+                placeholder="Enter your question"
+                value={newQuestion}
+                onChange={(e) => setNewQuestion(e.target.value)}
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-lg text-gray-500 placeholder-gray-500"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-lg font-semibold text-black mb-3">Answer</label>
+              <input
+                type="text"
+                placeholder="Enter an answer to your question"
+                value={newAnswer}
+                onChange={(e) => setNewAnswer(e.target.value)}
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-lg text-gray-500 placeholder-gray-500"
+              />
+            </div>
+          </div>
+
+          {/* Add FAQ Button */}
+          <button className="flex items-center gap-3 px-4 py-2 bg-black text-white rounded-xl">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <g clipPath="url(#clip0_70_202)">
+                <path d="M3.125 10H16.875" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10 3.125V16.875" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_70_202">
+                  <rect width="20" height="20" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <span className="text-base font-medium">Add FAQ</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderAdvanced = () => (
+    <div className="space-y-5">
+      {/* Section Header */}
+      <div className="flex justify-between items-center">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M16.3083 4.38394C15.7173 4.38394 15.4217 4.38394 15.1525 4.28405C15.1151 4.27017 15.0783 4.25491 15.042 4.23828C14.781 4.11855 14.5721 3.90959 14.1541 3.49167C13.1922 2.52977 12.7113 2.04882 12.1195 2.00447C12.04 1.99851 11.96 1.99851 11.8805 2.00447C11.2887 2.04882 10.8077 2.52977 9.84585 3.49166C9.42793 3.90959 9.21897 4.11855 8.95797 4.23828C8.92172 4.25491 8.88486 4.27017 8.84747 4.28405C8.57825 4.38394 8.28273 4.38394 7.69171 4.38394H7.58269C6.07478 4.38394 5.32083 4.38394 4.85239 4.85239C4.38394 5.32083 4.38394 6.07478 4.38394 7.58269V7.69171C4.38394 8.28273 4.38394 8.57825 4.28405 8.84747C4.27017 8.88486 4.25491 8.92172 4.23828 8.95797C4.11855 9.21897 3.90959 9.42793 3.49166 9.84585C2.52977 10.8077 2.04882 11.2887 2.00447 11.8805C1.99851 11.96 1.99851 12.04 2.00447 12.1195C2.04882 12.7113 2.52977 13.1922 3.49166 14.1541C3.90959 14.5721 4.11855 14.781 4.23828 15.042C4.25491 15.0783 4.27017 15.1151 4.28405 15.1525C4.38394 15.4217 4.38394 15.7173 4.38394 16.3083V16.4173C4.38394 17.9252 4.38394 18.6792 4.85239 19.1476C5.32083 19.6161 6.07478 19.6161 7.58269 19.6161H7.69171C8.28273 19.6161 8.57825 19.6161 8.84747 19.716C8.88486 19.7298 8.92172 19.7451 8.95797 19.7617C9.21897 19.8815 9.42793 20.0904 9.84585 20.5083C10.8077 21.4702 11.2887 21.9512 11.8805 21.9955C11.96 22.0015 12.0399 22.0015 12.1195 21.9955C12.7113 21.9512 13.1922 21.4702 14.1541 20.5083C14.5721 20.0904 14.781 19.8815 15.042 19.7617C15.0783 19.7451 15.1151 19.7298 15.1525 19.716C15.4217 19.6161 15.7173 19.6161 16.3083 19.6161H16.4173C17.9252 19.6161 18.6792 19.6161 19.1476 19.1476C19.6161 18.6792 19.6161 17.9252 19.6161 16.4173V16.3083C19.6161 15.7173 19.6161 15.4217 19.716 15.1525C19.7298 15.1151 19.7451 15.0783 19.7617 15.042C19.8815 14.781 20.0904 14.5721 20.5083 14.1541C21.4702 13.1922 21.9512 12.7113 21.9955 12.1195C22.0015 12.0399 22.0015 11.96 21.9955 11.8805C21.9512 11.2887 21.4702 10.8077 20.5083 9.84585C20.0904 9.42793 19.8815 9.21897 19.7617 8.95797C19.7451 8.92172 19.7298 8.88486 19.716 8.84747C19.6161 8.57825 19.6161 8.28273 19.6161 7.69171V7.58269C19.6161 6.07478 19.6161 5.32083 19.1476 4.85239C18.6792 4.38394 17.9252 4.38394 16.4173 4.38394H16.3083Z" stroke="black" strokeWidth="1.5"/>
+              <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="black" strokeWidth="1.5"/>
+            </svg>
+            <h2 className="text-xl font-semibold text-black">Advanced</h2>
+          </div>
+          <p className="text-lg font-semibold text-gray-500">Fine-tune your AI agent's behavior, integrations, and system controls.</p>
+        </div>
+        <div className="flex items-center gap-3">
+          <button className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-xl bg-white">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.6747 1.66699V4.27715C16.6747 4.52203 16.3685 4.63289 16.2117 4.44477C14.6858 2.73991 12.4684 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003" stroke="#141B34" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="text-base font-medium text-black">Refresh</span>
+          </button>
+          <button className="flex items-center gap-3 px-4 py-2 bg-black text-white rounded-xl">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <g clipPath="url(#clip0_183_405)">
+                <path d="M16.875 6.50859V16.25C16.875 16.4158 16.8092 16.5747 16.6919 16.6919C16.5747 16.8092 16.4158 16.875 16.25 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V3.75C3.125 3.58424 3.19085 3.42527 3.30806 3.30806C3.42527 3.19085 3.58424 3.125 3.75 3.125H13.4914C13.6569 3.12508 13.8157 3.19082 13.9328 3.30781L16.6922 6.06719C16.8092 6.18431 16.8749 6.34305 16.875 6.50859Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6.25 16.875V11.875C6.25 11.7092 6.31585 11.5503 6.43306 11.4331C6.55027 11.3158 6.70924 11.25 6.875 11.25H13.125C13.2908 11.25 13.4497 11.3158 13.5669 11.4331C13.6842 11.5503 13.75 11.7092 13.75 11.875V16.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.875 5.625H7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_183_405">
+                  <rect width="20" height="20" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <span className="text-base font-medium">Save Changes</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Advanced Settings */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-5">
+        <div className="space-y-5">
+          {/* First Row */}
+          <div className="flex gap-5">
+            <div className="flex-1">
+              <label className="block text-lg font-semibold text-black mb-3">How should your AI handle common questions that it can't answer?</label>
+              <div className="relative">
+                <select className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-lg text-gray-500 appearance-none bg-white">
+                  <option>Select what the AI should do</option>
+                </select>
+                <svg className="absolute right-4 top-1/2 transform -translate-y-1/2" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div className="flex-1 space-y-4">
+              <label className="block text-lg font-semibold text-black">Do you want a daily summary of all calls and bookings?</label>
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-semibold text-gray-500">No</span>
+                <button
+                  onClick={() => setDailySummary(!dailySummary)}
+                  className={`flex p-1 rounded-full transition-colors ${
+                    dailySummary ? 'bg-gray-200' : 'bg-gray-200'
+                  }`}
+                >
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    dailySummary ? 'bg-black translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    !dailySummary ? 'bg-black -translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                </button>
+                <span className="text-lg font-semibold text-gray-500">Yes</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Row */}
+          <div className="flex gap-5">
+            <div className="flex-1 space-y-4">
+              <label className="block text-lg font-semibold text-black">Should customers receive booking confirmations by Email?</label>
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-semibold text-gray-500">No</span>
+                <button
+                  onClick={() => setEmailConfirmations(!emailConfirmations)}
+                  className={`flex p-1 rounded-full transition-colors ${
+                    emailConfirmations ? 'bg-gray-200' : 'bg-gray-200'
+                  }`}
+                >
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    emailConfirmations ? 'bg-black translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    !emailConfirmations ? 'bg-black -translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                </button>
+                <span className="text-lg font-semibold text-gray-500">Yes</span>
+              </div>
+            </div>
+            <div className="flex-1 space-y-4">
+              <label className="block text-lg font-semibold text-black">Would you like your AI to send automatic reminders before each appointment?</label>
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-semibold text-gray-500">No</span>
+                <button
+                  onClick={() => setAutoReminders(!autoReminders)}
+                  className={`flex p-1 rounded-full transition-colors ${
+                    autoReminders ? 'bg-gray-200' : 'bg-gray-200'
+                  }`}
+                >
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    autoReminders ? 'bg-black translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                  <div className={`w-6 h-6 rounded-full transition-all ${
+                    !autoReminders ? 'bg-black -translate-x-6' : 'bg-transparent'
+                  }`}></div>
+                </button>
+                <span className="text-lg font-semibold text-gray-500">Yes</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Calendar Integration */}
+          <div className="flex justify-between items-end gap-5">
+            <div className="flex-1">
+              <label className="block text-lg font-semibold text-black mb-3">Calendar Integration</label>
+              <div className="relative">
+                <select className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-lg text-gray-500 appearance-none bg-white">
+                  <option>Google Calendar</option>
+                </select>
+                <svg className="absolute right-4 top-1/2 transform -translate-y-1/2" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <button className="flex items-center gap-3 px-4 py-2 bg-black text-white rounded-xl">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <g clipPath="url(#clip0_183_684)">
+                  <path d="M7.5 12.5L12.5 7.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8.75 5.94598L11.0984 3.60223C11.8036 2.90843 12.7544 2.52139 13.7437 2.52542C14.7329 2.52945 15.6805 2.92422 16.3801 3.62374C17.0796 4.32326 17.4743 5.27086 17.4784 6.26012C17.4824 7.24938 17.0954 8.20016 16.4016 8.90536L14.0531 11.2499" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M5.94598 8.75L3.60223 11.0984C2.90843 11.8036 2.52139 12.7544 2.52542 13.7437C2.52945 14.7329 2.92422 15.6805 3.62374 16.3801C4.32326 17.0796 5.27086 17.4743 6.26012 17.4784C7.24938 17.4824 8.20016 17.0954 8.90536 16.4016L11.2499 14.0531" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_183_684">
+                    <rect width="20" height="20" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+              <span className="text-base font-medium">Sync Account</span>
+            </button>
           </div>
         </div>
       </div>
@@ -423,14 +693,29 @@ const AgentManagement: React.FC = () => {
         <div className="flex justify-between items-center mb-5">
           <div className="flex items-center gap-3">
             <span className="text-lg font-semibold text-black">Agent status:</span>
-            <div className="flex items-center gap-3 px-4 py-1 border border-green-500 bg-green-50 rounded-full">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-base font-medium text-green-500">Live</span>
+            <div className={`flex items-center gap-3 px-4 py-1 border rounded-full ${
+              isAgentLive
+                ? 'border-green-500 bg-green-50'
+                : 'border-red-500 bg-red-50'
+            }`}>
+              <div className={`w-2 h-2 rounded-full ${
+                isAgentLive ? 'bg-green-500' : 'bg-red-500'
+              }`}></div>
+              <span className={`text-base font-medium ${
+                isAgentLive ? 'text-green-500' : 'text-red-500'
+              }`}>
+                {isAgentLive ? 'Live' : 'Offline'}
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="bg-red-500 text-white px-4 py-2 rounded-xl text-base font-medium">
-              Go Offline
+            <button
+              onClick={() => setIsAgentLive(!isAgentLive)}
+              className={`px-4 py-2 rounded-xl text-base font-medium text-white ${
+                isAgentLive ? 'bg-red-500' : 'bg-green-500'
+              }`}
+            >
+              {isAgentLive ? 'Go Offline' : 'Go Live'}
             </button>
             <button className="bg-black text-white px-4 py-2 rounded-xl flex items-center gap-3">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -506,16 +791,8 @@ const AgentManagement: React.FC = () => {
         {activeTab === 'basic-info' && renderBasicInfo()}
         {activeTab === 'ai-personality' && renderAIPersonality()}
         {activeTab === 'booking' && renderBooking()}
-        {activeTab === 'faqs' && (
-          <div className="text-center py-20">
-            <p className="text-xl text-gray-500">FAQs configuration coming soon...</p>
-          </div>
-        )}
-        {activeTab === 'advanced' && (
-          <div className="text-center py-20">
-            <p className="text-xl text-gray-500">Advanced settings coming soon...</p>
-          </div>
-        )}
+        {activeTab === 'faqs' && renderFAQs()}
+        {activeTab === 'advanced' && renderAdvanced()}
       </main>
     </div>
   );
