@@ -1010,12 +1010,12 @@ const AgentManagement: React.FC = () => {
                   <div className="flex gap-2">
                     <button className="flex-1 border border-gray-200 rounded-xl p-3 flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 18.1C12 22.0765 16.866 25.3 20 25.3M20 25.3C23.866 25.3 27 22.0765 27 18.1M20 25.3V28M20 28H17.375M20 28H22.625M16.625 14.5V18.1C16.625 20.5853 18.584 22.6 21 22.6C23.416 22.6 25.375 20.5853 25.375 18.1V14.5C25.375 12.0147 23.416 10 21 10C18.584 10 16.625 12.0147 16.625 14.5Z" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M12 17C12 19.7614 9.76142 22 7 22M7 22C4.23858 22 2 19.7614 2 17M7 22V24M7 24H9M7 24H5M11 10V17C11 18.6569 9.65685 20 8 20C6.34315 20 5 18.6569 5 17V10C5 8.34315 6.34315 7 8 7C9.65685 7 11 8.34315 11 10Z" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
                       </svg>
                     </button>
                     <button className="flex-1 border border-gray-200 rounded-xl p-3 flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M16.5 13.625C17.188 14.5471 17.6 15.7213 17.6 17C17.6 18.2787 17.188 19.4528 16.5 20.375M19.8 11.375C21.176 12.9119 22 14.8689 22 17C22 19.1311 21.176 21.0881 19.8 22.625M13.2 20.1652V13.8348C13.2 10.2964 13.2 8.5272 12.182 8.087C11.164 7.64667 9.966 8.8977 7.571 11.3997C6.33 12.6954 5.622 12.9823 3.857 12.9823C2.313 12.9823 1.541 12.9823 0.986 13.3692C-0.165 14.1724 0.009 15.7422 0.009 17C0.009 18.2577 -0.165 19.8276 0.986 20.6308C1.541 21.0177 2.313 21.0177 3.857 21.0177C5.622 21.0177 6.33 21.3047 7.571 22.6004C9.966 25.1024 11.164 26.3534 12.182 25.913C13.2 25.4727 13.2 23.7035 13.2 20.1652Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M16 10C16.53 10.9 17 12.4 17 14C17 15.6 16.53 17.1 16 18M19 7C20.76 9.05 22 11.9 22 15C22 18.1 20.76 20.95 19 23M11 18V6L3 10H1V20H3L11 24V18Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                   </div>
