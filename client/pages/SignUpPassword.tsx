@@ -11,9 +11,9 @@ export default function SignUpPassword() {
   const handleCreateAccount = () => {
     // Here you would typically validate passwords match and create the account
     if (password === confirmPassword && password.length > 0) {
-      // Navigate to success page or dashboard
-      alert('Account created successfully!');
-      navigate('/');
+      // Navigate to onboarding flow
+      sessionStorage.setItem('accountCreated', 'true');
+      navigate('/onboarding/step1');
     } else {
       alert('Passwords do not match or are empty');
     }
