@@ -15,6 +15,7 @@ const DailySummary: React.FC = () => {
   const navigate = useNavigate();
   const [showSummaryPopup, setShowSummaryPopup] = useState(false);
   const [selectedSummary, setSelectedSummary] = useState<DailySummaryEntry | null>(null);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   // Check if user is logged in
   useEffect(() => {
