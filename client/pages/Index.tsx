@@ -2,10 +2,48 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!email.trim() || !password.trim()) {
+      alert('Please enter both email and password');
+      return;
+    }
+
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Simulate API call - in a real app, this would be an actual authentication request
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // For demo purposes, accept any email/password combination
+      // In a real app, this would validate against your backend
+
+      // Store login state in sessionStorage
+      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('userEmail', email);
+
+      // Redirect to dashboard
+      navigate('/dashboard');
+    } catch (error) {
+      alert('Login failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] flex flex-col items-center px-4 py-16">
