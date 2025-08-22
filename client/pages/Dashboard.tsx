@@ -353,11 +353,21 @@ const Dashboard: React.FC = () => {
             <p className="text-xl font-semibold text-gray-500">Monitor your AI agent performance and call analytics</p>
           </div>
           
-          {/* Today Button */}
-          <button 
-            onClick={() => setShowDateFilter(true)}
-            className="bg-black text-white px-4 py-3 rounded-lg flex items-center gap-2"
-          >
+          <div className="flex gap-3">
+            {/* Testing Toggle Button */}
+            <button
+              onClick={toggleCallsData}
+              className="bg-gray-600 text-white px-3 py-2 rounded-lg text-sm"
+              title="Toggle between empty and full call states"
+            >
+              {calls.length === 0 ? 'Add Calls' : 'Clear Calls'}
+            </button>
+
+            {/* Today Button */}
+            <button
+              onClick={() => setShowDateFilter(true)}
+              className="bg-black text-white px-4 py-3 rounded-lg flex items-center gap-2"
+            >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <g clipPath="url(#clip0_195_35)">
                 <path d="M19.5 3.75H4.5C4.08579 3.75 3.75 4.08579 3.75 4.5V19.5C3.75 19.9142 4.08579 20.25 4.5 20.25H19.5C19.9142 20.25 20.25 19.9142 20.25 19.5V4.5C20.25 4.08579 19.9142 3.75 19.5 3.75Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -378,6 +388,7 @@ const Dashboard: React.FC = () => {
             </svg>
             <span className="text-base font-medium">Today</span>
           </button>
+          </div>
         </div>
 
         <div className="flex gap-6">
