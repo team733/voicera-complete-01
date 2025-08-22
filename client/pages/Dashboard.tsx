@@ -380,8 +380,8 @@ const Dashboard: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-3xl font-semibold text-black mb-2">0</div>
-                  <div className="text-gray-500">0 calls today</div>
+                  <div className="text-3xl font-semibold text-black mb-2">{calls.length}</div>
+                  <div className="text-gray-500">{calls.length} calls today</div>
                 </div>
               </div>
 
