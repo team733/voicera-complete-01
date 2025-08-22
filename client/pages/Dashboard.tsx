@@ -332,9 +332,13 @@ const Dashboard: React.FC = () => {
 
             {/* User Avatar */}
             <div className="flex items-center gap-5">
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+              <button
+                onClick={handleLogout}
+                className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                title="Click to logout"
+              >
                 <span className="text-lg font-semibold text-gray-800">H</span>
-              </div>
+              </button>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
