@@ -61,6 +61,10 @@ const App = () => (
           <Route path="/onboarding/booking-duration" element={<OnboardingBookingDuration />} />
           <Route path="/onboarding/booking-days" element={<OnboardingBookingDays />} />
           <Route path="/onboarding/booking-hours" element={<OnboardingBookingHours />} />
+          <Route path="/onboarding/booking-full" element={<OnboardingBookingFull />} />
+          <Route path="/onboarding/faqs-intro" element={<OnboardingFAQsIntro />} />
+          <Route path="/onboarding/faqs" element={<OnboardingFAQs />} />
+          <Route path="/onboarding/integrations-intro" element={<OnboardingIntegrationsIntro />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
