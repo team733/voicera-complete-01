@@ -4,15 +4,13 @@ export default function OnboardingComplete() {
   const navigate = useNavigate();
 
   const handleGoLive = () => {
-    // This would typically redirect to the main dashboard/live mode
-    alert('Going live! This would typically redirect to the main application.');
-    navigate('/');
+    // Redirect to the dashboard
+    navigate('/dashboard');
   };
 
   const handleTestAI = () => {
-    // This would typically open a test interface or demo
-    alert('Opening AI test interface! This would typically open a test/demo interface.');
-    navigate('/');
+    // Redirect to the dashboard for testing
+    navigate('/dashboard');
   };
 
   return (
