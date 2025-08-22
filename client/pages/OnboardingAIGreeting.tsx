@@ -51,9 +51,8 @@ export default function OnboardingAIGreeting() {
           label: selectedOption.label,
           text: selectedOption.text.replace('[Business Name]', businessName)
         }));
-        // Navigate to next step or complete onboarding
-        alert('AI personality configuration completed! This would typically redirect to the next major step.');
-        navigate('/');
+        // Navigate to booking setup
+        navigate('/onboarding/booking-intro');
       }
     }
   };
