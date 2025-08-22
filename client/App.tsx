@@ -39,6 +39,7 @@ import Dashboard from "./pages/Dashboard";
 import CallLogs from "./pages/CallLogs";
 import DailySummary from "./pages/DailySummary";
 import AgentManagement from "./pages/AgentManagement";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
