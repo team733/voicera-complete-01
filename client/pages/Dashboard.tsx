@@ -381,15 +381,6 @@ const Dashboard: React.FC = () => {
           </div>
           
           <div className="flex gap-3">
-            {/* Testing Toggle Button */}
-            <button
-              onClick={toggleCallsData}
-              className="bg-gray-600 text-white px-3 py-2 rounded-lg text-sm"
-              title="Toggle between empty and full call states"
-            >
-              {calls.length === 0 ? 'Add Calls' : 'Clear Calls'}
-            </button>
-
             {/* Today Button */}
             <button
               onClick={() => setShowDateFilter(true)}
