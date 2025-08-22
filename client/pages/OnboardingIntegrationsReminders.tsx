@@ -50,8 +50,8 @@ export default function OnboardingIntegrationsReminders() {
       onPrevious={handlePrevious}
       onNext={handleSubmit}
       showPrevious={true}
-      nextDisabled={isSubmitDisabled}
-      nextButtonText="Submit"
+      nextDisabled={isNextDisabled}
+      nextButtonText={buttonText}
     >
       <div className="flex flex-col gap-12">
         {/* Main Question */}
