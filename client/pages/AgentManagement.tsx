@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Add animation styles
+const audioVisualizationStyles = `
+  @keyframes pulse {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(1.5); }
+  }
+`;
+
 const AgentManagement: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basic-info');
