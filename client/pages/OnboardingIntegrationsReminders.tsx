@@ -72,7 +72,7 @@ export default function OnboardingIntegrationsReminders() {
             >
               <div
                 className={`w-6 h-6 rounded-full ${
-                  wantsReminders ? 'bg-transparent' : 'bg-black'
+                  wantsReminders ? 'bg-transparent' : 'bg-white'
                 }`}
               />
               <div
