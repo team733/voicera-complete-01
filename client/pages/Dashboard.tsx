@@ -323,9 +323,9 @@ const Dashboard: React.FC = () => {
             {/* User Avatar */}
             <div className="flex items-center gap-5">
               <button
-                onClick={handleLogout}
+                onClick={() => navigate('/profile')}
                 className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                title="Click to logout"
+                title="Profile"
               >
                 <span className="text-lg font-semibold text-gray-800">H</span>
               </button>
