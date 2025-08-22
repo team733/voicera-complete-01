@@ -772,7 +772,10 @@ const AgentManagement: React.FC = () => {
             >
               {isAgentLive ? 'Go Offline' : 'Go Live'}
             </button>
-            <button className="bg-black text-white px-4 py-2 rounded-xl flex items-center gap-3">
+            <button
+              onClick={handleTestAgentClick}
+              className="bg-black text-white px-4 py-2 rounded-xl flex items-center gap-3"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2426 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2426 22 18.1213 21.1213C19 20.2426 19 18.8284 19 16Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
                 <path d="M19 18C20.4142 18 21.1213 18 21.5607 17.5607C22 17.1213 22 16.4142 22 15C22 13.5858 22 12.8787 21.5607 12.4393C21.1213 12 20.4142 12 19 12" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
