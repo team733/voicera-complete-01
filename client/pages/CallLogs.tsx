@@ -353,9 +353,12 @@ const CallLogs: React.FC = () => {
             <div className="bg-white px-4 py-2 rounded-full shadow-sm">
               <span className="text-lg font-semibold text-black">Call Logs</span>
             </div>
-            <div className="px-4 py-2">
+            <button
+              onClick={() => navigate('/daily-summary')}
+              className="px-4 py-2 hover:bg-gray-200 rounded-full transition-colors"
+            >
               <span className="text-lg font-semibold text-gray-500">Daily Summary</span>
-            </div>
+            </button>
           </div>
         </div>
       </header>
