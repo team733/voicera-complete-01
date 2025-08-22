@@ -39,7 +39,8 @@ export default function OnboardingIntegrationsReminders() {
     setShowDropdown(false);
   };
 
-  const isSubmitDisabled = wantsReminders && !reminderTiming;
+  const isNextDisabled = wantsReminders && !reminderTiming;
+  const buttonText = wantsReminders ? "Submit" : "Next";
 
   return (
     <OnboardingLayout
