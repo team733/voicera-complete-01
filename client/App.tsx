@@ -21,6 +21,11 @@ import OnboardingAIVoice from "./pages/OnboardingAIVoice";
 import OnboardingAIName from "./pages/OnboardingAIName";
 import OnboardingAISchedule from "./pages/OnboardingAISchedule";
 import OnboardingAIGreeting from "./pages/OnboardingAIGreeting";
+import OnboardingBookingIntro from "./pages/OnboardingBookingIntro";
+import OnboardingBookingServices from "./pages/OnboardingBookingServices";
+import OnboardingBookingDuration from "./pages/OnboardingBookingDuration";
+import OnboardingBookingDays from "./pages/OnboardingBookingDays";
+import OnboardingBookingHours from "./pages/OnboardingBookingHours";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -47,6 +52,11 @@ const App = () => (
           <Route path="/onboarding/ai-name" element={<OnboardingAIName />} />
           <Route path="/onboarding/ai-schedule" element={<OnboardingAISchedule />} />
           <Route path="/onboarding/ai-greeting" element={<OnboardingAIGreeting />} />
+          <Route path="/onboarding/booking-intro" element={<OnboardingBookingIntro />} />
+          <Route path="/onboarding/booking-services" element={<OnboardingBookingServices />} />
+          <Route path="/onboarding/booking-duration" element={<OnboardingBookingDuration />} />
+          <Route path="/onboarding/booking-days" element={<OnboardingBookingDays />} />
+          <Route path="/onboarding/booking-hours" element={<OnboardingBookingHours />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
