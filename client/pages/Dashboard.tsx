@@ -23,6 +23,13 @@ const Dashboard: React.FC = () => {
     }
   }, [navigate]);
 
+  // Logout function
+  const handleLogout = () => {
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('userEmail');
+    navigate('/');
+  };
+
   // Mock data - in a real app this would come from an API
   // Start with sample data to show the normal dashboard state
   const [calls, setCalls] = useState<Call[]>([
