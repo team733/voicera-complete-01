@@ -1010,12 +1010,17 @@ const AgentManagement: React.FC = () => {
                   <div className="flex gap-2">
                     <button className="flex-1 border border-gray-200 rounded-xl p-3 flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 17C12 19.7614 9.76142 22 7 22M7 22C4.23858 22 2 19.7614 2 17M7 22V24M7 24H9M7 24H5M11 10V17C11 18.6569 9.65685 20 8 20C6.34315 20 5 18.6569 5 17V10C5 8.34315 6.34315 7 8 7C9.65685 7 11 8.34315 11 10Z" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M12 1C13.66 1 15 2.34 15 4V12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12V4C9 2.34 10.34 1 12 1Z" stroke="black" strokeWidth="1.5"/>
+                        <path d="M19 10V12C19 16.42 15.42 20 11 20H13C8.58 20 5 16.42 5 12V10" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M12 20V23" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M8 23H16" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
                       </svg>
                     </button>
                     <button className="flex-1 border border-gray-200 rounded-xl p-3 flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M16 10C16.53 10.9 17 12.4 17 14C17 15.6 16.53 17.1 16 18M19 7C20.76 9.05 22 11.9 22 15C22 18.1 20.76 20.95 19 23M11 18V6L3 10H1V20H3L11 24V18Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M19.07 4.93C20.9447 6.80528 21.9979 9.34836 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 12C17.0039 13.3308 16.4774 14.6024 15.54 15.54" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                   </div>
