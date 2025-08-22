@@ -11,6 +11,11 @@ import SignUp from "./pages/SignUp";
 import SignUpVerify from "./pages/SignUpVerify";
 import SignUpPassword from "./pages/SignUpPassword";
 import ForgotPassword from "./pages/ForgotPassword";
+import OnboardingStep1 from "./pages/OnboardingStep1";
+import OnboardingStep2 from "./pages/OnboardingStep2";
+import OnboardingStep3 from "./pages/OnboardingStep3";
+import OnboardingStep4 from "./pages/OnboardingStep4";
+import OnboardingStep5 from "./pages/OnboardingStep5";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +32,11 @@ const App = () => (
           <Route path="/signup/verify" element={<SignUpVerify />} />
           <Route path="/signup/password" element={<SignUpPassword />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/onboarding/step1" element={<OnboardingStep1 />} />
+          <Route path="/onboarding/step2" element={<OnboardingStep2 />} />
+          <Route path="/onboarding/step3" element={<OnboardingStep3 />} />
+          <Route path="/onboarding/step4" element={<OnboardingStep4 />} />
+          <Route path="/onboarding/step5" element={<OnboardingStep5 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
