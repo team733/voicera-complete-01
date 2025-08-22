@@ -70,6 +70,11 @@ const App = () => (
           <Route path="/onboarding/faqs-intro" element={<OnboardingFAQsIntro />} />
           <Route path="/onboarding/faqs" element={<OnboardingFAQs />} />
           <Route path="/onboarding/integrations-intro" element={<OnboardingIntegrationsIntro />} />
+          <Route path="/onboarding/integrations-handling" element={<OnboardingIntegrationsHandling />} />
+          <Route path="/onboarding/integrations-summary" element={<OnboardingIntegrationsSummary />} />
+          <Route path="/onboarding/integrations-confirmations" element={<OnboardingIntegrationsConfirmations />} />
+          <Route path="/onboarding/integrations-reminders" element={<OnboardingIntegrationsReminders />} />
+          <Route path="/onboarding/complete" element={<OnboardingComplete />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
