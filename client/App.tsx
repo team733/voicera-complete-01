@@ -78,6 +78,7 @@ const App = () => (
           <Route path="/onboarding/integrations-reminders" element={<OnboardingIntegrationsReminders />} />
           <Route path="/onboarding/complete" element={<OnboardingComplete />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/call-logs" element={<CallLogs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
