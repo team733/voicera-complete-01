@@ -35,6 +35,7 @@ import OnboardingIntegrationsSummary from "./pages/OnboardingIntegrationsSummary
 import OnboardingIntegrationsConfirmations from "./pages/OnboardingIntegrationsConfirmations";
 import OnboardingIntegrationsReminders from "./pages/OnboardingIntegrationsReminders";
 import OnboardingComplete from "./pages/OnboardingComplete";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
