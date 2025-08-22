@@ -67,21 +67,17 @@ export default function OnboardingIntegrationsReminders() {
             
             <button
               onClick={handleToggle}
-              className="flex p-0.5 items-center rounded-full bg-[#E5E7EB] transition-colors"
+              className="flex p-0.5 items-center rounded-full bg-[#E5E7EB]"
               style={{ width: '52px', height: '28px' }}
             >
               <div
-                className={`w-6 h-6 rounded-full transition-all duration-200 ${
-                  wantsReminders 
-                    ? 'bg-black translate-x-6' 
-                    : 'bg-transparent translate-x-0'
+                className={`w-6 h-6 rounded-full ${
+                  wantsReminders ? 'bg-transparent' : 'bg-black'
                 }`}
               />
               <div
-                className={`w-6 h-6 rounded-full transition-all duration-200 ${
-                  wantsReminders 
-                    ? 'bg-transparent -translate-x-6' 
-                    : 'bg-black translate-x-0'
+                className={`w-6 h-6 rounded-full ${
+                  wantsReminders ? 'bg-black' : 'bg-transparent'
                 }`}
               />
             </button>
