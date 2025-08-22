@@ -38,6 +38,7 @@ import OnboardingComplete from "./pages/OnboardingComplete";
 import Dashboard from "./pages/Dashboard";
 import CallLogs from "./pages/CallLogs";
 import DailySummary from "./pages/DailySummary";
+import AgentManagement from "./pages/AgentManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/call-logs" element={<CallLogs />} />
           <Route path="/daily-summary" element={<DailySummary />} />
+          <Route path="/agent-management" element={<AgentManagement />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
