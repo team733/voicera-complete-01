@@ -11,10 +11,10 @@ export default function OnboardingComplete() {
   };
 
   const handleTestAI = () => {
-    // Set login state and redirect to the dashboard for testing
+    // Set login state and redirect to agent management for testing
     sessionStorage.setItem('isLoggedIn', 'true');
     sessionStorage.setItem('userEmail', sessionStorage.getItem('email') || 'user@example.com');
-    navigate('/dashboard');
+    navigate('/agent-management');
   };
 
   return (
