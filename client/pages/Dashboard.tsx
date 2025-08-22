@@ -438,53 +438,62 @@ const Dashboard: React.FC = () => {
                 <p className="text-lg font-semibold text-gray-500">Distribution of call results</p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-1">
-                  <div className="flex items-center gap-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M14.1667 2.78135C12.9409 2.07231 11.5178 1.6665 10 1.6665C5.39762 1.6665 1.66666 5.39746 1.66666 9.99984C1.66666 14.6022 5.39762 18.3332 10 18.3332C14.6023 18.3332 18.3333 14.6022 18.3333 9.99984C18.3333 9.42909 18.2759 8.87167 18.1667 8.33317" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M6.66666 10.4165C6.66666 10.4165 7.91666 10.4165 9.58333 13.3332C9.58333 13.3332 14.2157 5.69428 18.3333 4.1665" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-lg text-black">Successful Bookings</span>
-                  </div>
-                  <span className="text-lg font-semibold text-black">0</span>
-                </div>
+{(() => {
+                const successfulBookings = calls.filter(call => call.status === 'booked').length;
+                const informationInquiries = calls.filter(call => call.status === 'inquiry').length;
+                const droppedMissed = calls.filter(call => call.status === 'dropped').length;
+                const unsuccessful = 1; // Static for now
 
-                <div className="flex justify-between items-center py-1">
-                  <div className="flex items-center gap-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M13.75 16.6665V14.9752C13.75 13.9399 13.2839 12.9248 12.3419 12.4953C11.1929 11.9716 9.81491 11.6665 8.33333 11.6665C6.85176 11.6665 5.47375 11.9716 4.32473 12.4953C3.38272 12.9248 2.91666 13.9399 2.91666 14.9752V16.6665" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M17.0833 16.6673V14.9759C17.0833 13.9406 16.6173 12.9256 15.6753 12.4961C15.4581 12.3971 15.2327 12.3059 15 12.2231" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M8.33333 9.16683C9.94416 9.16683 11.25 7.86099 11.25 6.25016C11.25 4.63933 9.94416 3.3335 8.33333 3.3335C6.7225 3.3335 5.41666 4.63933 5.41666 6.25016C5.41666 7.86099 6.7225 9.16683 8.33333 9.16683Z" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12.5 3.45361C13.7048 3.81218 14.5833 4.92824 14.5833 6.2495C14.5833 7.57075 13.7048 8.68684 12.5 9.04542" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-lg text-black">Information Inquires</span>
-                  </div>
-                  <span className="text-lg font-semibold text-black">0</span>
-                </div>
+                return (
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-1">
+                      <div className="flex items-center gap-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M14.1667 2.78135C12.9409 2.07231 11.5178 1.6665 10 1.6665C5.39762 1.6665 1.66666 5.39746 1.66666 9.99984C1.66666 14.6022 5.39762 18.3332 10 18.3332C14.6023 18.3332 18.3333 14.6022 18.3333 9.99984C18.3333 9.42909 18.2759 8.87167 18.1667 8.33317" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round"/>
+                          <path d="M6.66666 10.4165C6.66666 10.4165 7.91666 10.4165 9.58333 13.3332C9.58333 13.3332 14.2157 5.69428 18.3333 4.1665" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-lg text-black">Successful Bookings</span>
+                      </div>
+                      <span className="text-lg font-semibold text-black">{successfulBookings}</span>
+                    </div>
 
-                <div className="flex justify-between items-center py-1">
-                  <div className="flex items-center gap-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M17.5 2.5L2.5 17.5" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M6.73679 9.92983C6.60721 9.67667 6.53525 9.50142 6.50406 9.28975C6.46645 9.0345 6.49923 8.71417 6.58775 8.47192C6.6876 8.19857 6.87401 7.97488 7.24683 7.5275C7.62135 7.07807 7.80862 6.85335 7.90763 6.59909C8.00238 6.35578 8.03884 6.09367 8.01412 5.83373C7.98828 5.5621 7.86948 5.2948 7.63188 4.76019L7.29633 4.00521C7.07693 3.51157 6.96723 3.26473 6.80317 3.07584C6.59756 2.83912 6.32956 2.66495 6.02973 2.57321C5.79048 2.5 5.52038 2.5 4.98018 2.5C4.18993 2.5 3.79479 2.5 3.46311 2.65191C3.07239 2.83085 2.71953 3.2194 2.57894 3.6255C2.45959 3.97024 2.49378 4.32453 2.56215 5.03308C2.82826 7.79079 3.54988 10.093 4.72702 11.9397M6.20917 13.7908C8.27663 15.8582 11.1959 17.074 14.9669 17.4378C15.6755 17.5062 16.0298 17.5404 16.3745 17.4211C16.7806 17.2805 17.1692 16.9276 17.3481 16.5369C17.5 16.2052 17.5 15.8101 17.5 15.0198C17.5 14.4796 17.5 14.2095 17.4268 13.9702C17.3351 13.6704 17.1609 13.4024 16.9242 13.1968C16.7352 13.0327 16.4884 12.9231 15.9948 12.7037L15.2398 12.3681C14.7052 12.1305 14.4379 12.0117 14.1663 11.9859C13.9063 11.9612 13.6443 11.9977 13.4009 12.0924C13.1467 12.1914 12.9219 12.3787 12.4725 12.7532C12.0251 13.126 11.8014 13.3124 11.5281 13.4122C11.2858 13.5007 10.9655 13.5336 10.7103 13.4959C10.4224 13.4535 10.2019 13.3358 9.76108 13.1001C9.07525 12.7336 8.54317 12.3612 8.09098 11.909" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-lg text-black">Dropped/Missed</span>
-                  </div>
-                  <span className="text-lg font-semibold text-black">2</span>
-                </div>
+                    <div className="flex justify-between items-center py-1">
+                      <div className="flex items-center gap-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M13.75 16.6665V14.9752C13.75 13.9399 13.2839 12.9248 12.3419 12.4953C11.1929 11.9716 9.81491 11.6665 8.33333 11.6665C6.85176 11.6665 5.47375 11.9716 4.32473 12.4953C3.38272 12.9248 2.91666 13.9399 2.91666 14.9752V16.6665" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M17.0833 16.6673V14.9759C17.0833 13.9406 16.6173 12.9256 15.6753 12.4961C15.4581 12.3971 15.2327 12.3059 15 12.2231" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M8.33333 9.16683C9.94416 9.16683 11.25 7.86099 11.25 6.25016C11.25 4.63933 9.94416 3.3335 8.33333 3.3335C6.7225 3.3335 5.41666 4.63933 5.41666 6.25016C5.41666 7.86099 6.7225 9.16683 8.33333 9.16683Z" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12.5 3.45361C13.7048 3.81218 14.5833 4.92824 14.5833 6.2495C14.5833 7.57075 13.7048 8.68684 12.5 9.04542" stroke="#2C7FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-lg text-black">Information Inquires</span>
+                      </div>
+                      <span className="text-lg font-semibold text-black">{informationInquiries}</span>
+                    </div>
 
-                <div className="flex justify-between items-center py-1">
-                  <div className="flex items-center gap-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M18.3333 9.99984C18.3333 5.39746 14.6023 1.6665 10 1.6665C5.39762 1.6665 1.66666 5.39746 1.66666 9.99984C1.66666 14.6022 5.39762 18.3332 10 18.3332C14.6023 18.3332 18.3333 14.6022 18.3333 9.99984Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12.4995 12.5L7.5 7.5M7.50053 12.5L12.5 7.5" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-lg text-black">Unsuccessful</span>
+                    <div className="flex justify-between items-center py-1">
+                      <div className="flex items-center gap-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M17.5 2.5L2.5 17.5" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M6.73679 9.92983C6.60721 9.67667 6.53525 9.50142 6.50406 9.28975C6.46645 9.0345 6.49923 8.71417 6.58775 8.47192C6.6876 8.19857 6.87401 7.97488 7.24683 7.5275C7.62135 7.07807 7.80862 6.85335 7.90763 6.59909C8.00238 6.35578 8.03884 6.09367 8.01412 5.83373C7.98828 5.5621 7.86948 5.2948 7.63188 4.76019L7.29633 4.00521C7.07693 3.51157 6.96723 3.26473 6.80317 3.07584C6.59756 2.83912 6.32956 2.66495 6.02973 2.57321C5.79048 2.5 5.52038 2.5 4.98018 2.5C4.18993 2.5 3.79479 2.5 3.46311 2.65191C3.07239 2.83085 2.71953 3.2194 2.57894 3.6255C2.45959 3.97024 2.49378 4.32453 2.56215 5.03308C2.82826 7.79079 3.54988 10.093 4.72702 11.9397M6.20917 13.7908C8.27663 15.8582 11.1959 17.074 14.9669 17.4378C15.6755 17.5062 16.0298 17.5404 16.3745 17.4211C16.7806 17.2805 17.1692 16.9276 17.3481 16.5369C17.5 16.2052 17.5 15.8101 17.5 15.0198C17.5 14.4796 17.5 14.2095 17.4268 13.9702C17.3351 13.6704 17.1609 13.4024 16.9242 13.1968C16.7352 13.0327 16.4884 12.9231 15.9948 12.7037L15.2398 12.3681C14.7052 12.1305 14.4379 12.0117 14.1663 11.9859C13.9063 11.9612 13.6443 11.9977 13.4009 12.0924C13.1467 12.1914 12.9219 12.3787 12.4725 12.7532C12.0251 13.126 11.8014 13.3124 11.5281 13.4122C11.2858 13.5007 10.9655 13.5336 10.7103 13.4959C10.4224 13.4535 10.2019 13.3358 9.76108 13.1001C9.07525 12.7336 8.54317 12.3612 8.09098 11.909" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-lg text-black">Dropped/Missed</span>
+                      </div>
+                      <span className="text-lg font-semibold text-black">{droppedMissed}</span>
+                    </div>
+
+                    <div className="flex justify-between items-center py-1">
+                      <div className="flex items-center gap-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M18.3333 9.99984C18.3333 5.39746 14.6023 1.6665 10 1.6665C5.39762 1.6665 1.66666 5.39746 1.66666 9.99984C1.66666 14.6022 5.39762 18.3332 10 18.3332C14.6023 18.3332 18.3333 14.6022 18.3333 9.99984Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12.4995 12.5L7.5 7.5M7.50053 12.5L12.5 7.5" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-lg text-black">Unsuccessful</span>
+                      </div>
+                      <span className="text-lg font-semibold text-black">{calls.length > 0 ? unsuccessful : 0}</span>
+                    </div>
                   </div>
-                  <span className="text-lg font-semibold text-black">1</span>
-                </div>
-              </div>
+                );
+              })()}
             </div>
           </div>
 
