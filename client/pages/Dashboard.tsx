@@ -43,19 +43,6 @@ const Dashboard: React.FC = () => {
     { id: '1007', time: '16:58:15', status: 'inquiry' },
   ]);
 
-  // Helper function to toggle between empty and full call list for testing
-  const toggleCallsData = () => {
-    setCalls(current => current.length === 0 ? [
-      { id: '1000', time: '16:54:03', status: 'booked' },
-      { id: '1001', time: '16:55:10', status: 'dropped' },
-      { id: '1002', time: '16:56:45', status: 'inquiry' },
-      { id: '1003', time: '16:57:30', status: 'booked' },
-      { id: '1004', time: '16:58:15', status: 'inquiry' },
-      { id: '1005', time: '16:55:10', status: 'dropped' },
-      { id: '1006', time: '16:57:30', status: 'booked' },
-      { id: '1007', time: '16:58:15', status: 'inquiry' },
-    ] : []);
-  };
 
   const getStatusStyle = (status: string) => {
     switch (status) {
