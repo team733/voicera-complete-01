@@ -30,6 +30,11 @@ import OnboardingBookingFull from "./pages/OnboardingBookingFull";
 import OnboardingFAQsIntro from "./pages/OnboardingFAQsIntro";
 import OnboardingFAQs from "./pages/OnboardingFAQs";
 import OnboardingIntegrationsIntro from "./pages/OnboardingIntegrationsIntro";
+import OnboardingIntegrationsHandling from "./pages/OnboardingIntegrationsHandling";
+import OnboardingIntegrationsSummary from "./pages/OnboardingIntegrationsSummary";
+import OnboardingIntegrationsConfirmations from "./pages/OnboardingIntegrationsConfirmations";
+import OnboardingIntegrationsReminders from "./pages/OnboardingIntegrationsReminders";
+import OnboardingComplete from "./pages/OnboardingComplete";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
