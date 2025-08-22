@@ -4,12 +4,16 @@ export default function OnboardingComplete() {
   const navigate = useNavigate();
 
   const handleGoLive = () => {
-    // Redirect to the dashboard
+    // Set login state and redirect to the dashboard
+    sessionStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('userEmail', sessionStorage.getItem('email') || 'user@example.com');
     navigate('/dashboard');
   };
 
   const handleTestAI = () => {
-    // Redirect to the dashboard for testing
+    // Set login state and redirect to the dashboard for testing
+    sessionStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('userEmail', sessionStorage.getItem('email') || 'user@example.com');
     navigate('/dashboard');
   };
 
