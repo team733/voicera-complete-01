@@ -1019,8 +1019,8 @@ const AgentManagement: React.FC = () => {
                     <button className="flex-1 border border-gray-200 rounded-xl p-3 flex items-center justify-center">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M19.07 4.93C20.9447 6.80528 21.9979 9.34836 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 12C17.0039 13.3308 16.4774 14.6024 15.54 15.54" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M19 5C20.5 6.5 21.5 8.5 21.5 12C21.5 15.5 20.5 17.5 19 19" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M15.5 8.5C16.2 9.2 16.5 10.5 16.5 12C16.5 13.5 16.2 14.8 15.5 15.5" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                   </div>
