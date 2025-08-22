@@ -7,12 +7,15 @@ export default function OnboardingIntegrationsConfirmations() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/integrations-summary');
+    navigate("/onboarding/integrations-summary");
   };
 
   const handleNext = () => {
-    sessionStorage.setItem('wantsEmailConfirmations', wantsEmailConfirmations.toString());
-    navigate('/onboarding/integrations-reminders');
+    sessionStorage.setItem(
+      "wantsEmailConfirmations",
+      wantsEmailConfirmations.toString(),
+    );
+    navigate("/onboarding/integrations-reminders");
   };
 
   const handleToggle = () => {
@@ -35,30 +38,30 @@ export default function OnboardingIntegrationsConfirmations() {
           <h2 className="text-lg font-bold text-black leading-[22px]">
             Should customers receive booking confirmations by Email?
           </h2>
-          
+
           {/* Toggle Switch */}
           <div className="flex items-center gap-4">
             <span className="text-lg font-bold text-[#6B7280] leading-[22px]">
               No
             </span>
-            
+
             <button
               onClick={handleToggle}
               className="flex p-0.5 items-center rounded-full bg-[#E5E7EB]"
-              style={{ width: '52px', height: '28px' }}
+              style={{ width: "52px", height: "28px" }}
             >
               <div
                 className={`w-6 h-6 rounded-full ${
-                  wantsEmailConfirmations ? 'bg-transparent' : 'bg-black'
+                  wantsEmailConfirmations ? "bg-transparent" : "bg-black"
                 }`}
               />
               <div
                 className={`w-6 h-6 rounded-full ${
-                  wantsEmailConfirmations ? 'bg-black' : 'bg-transparent'
+                  wantsEmailConfirmations ? "bg-black" : "bg-transparent"
                 }`}
               />
             </button>
-            
+
             <span className="text-lg font-bold text-[#6B7280] leading-[22px]">
               Yes
             </span>

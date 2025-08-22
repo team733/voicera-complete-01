@@ -8,13 +8,16 @@ export default function OnboardingBookingHours() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/booking-days');
+    navigate("/onboarding/booking-days");
   };
 
   const handleNext = () => {
     if (fromTime && toTime) {
-      sessionStorage.setItem('businessHours', JSON.stringify({ from: fromTime, to: toTime }));
-      navigate('/onboarding/booking-full');
+      sessionStorage.setItem(
+        "businessHours",
+        JSON.stringify({ from: fromTime, to: toTime }),
+      );
+      navigate("/onboarding/booking-full");
     }
   };
 
@@ -33,7 +36,9 @@ export default function OnboardingBookingHours() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">Enter your business hours</h2>
+          <h2 className="text-xl font-bold text-black">
+            Enter your business hours
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             Define your availability so customers know when they can reach you.
           </p>
@@ -51,13 +56,33 @@ export default function OnboardingBookingHours() {
                 placeholder="From"
                 className="text-lg text-[#6B7280] bg-transparent focus:outline-none focus:text-black flex-1"
               />
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 6.75V12H17.25" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 6.75V12H17.25"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
             {!fromTime && (
-              <label className="block text-lg text-[#6B7280] mt-2 px-4">From</label>
+              <label className="block text-lg text-[#6B7280] mt-2 px-4">
+                From
+              </label>
             )}
           </div>
 
@@ -71,13 +96,33 @@ export default function OnboardingBookingHours() {
                 placeholder="To"
                 className="text-lg text-[#6B7280] bg-transparent focus:outline-none focus:text-black flex-1"
               />
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 6.75V12H17.25" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 6.75V12H17.25"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
             {!toTime && (
-              <label className="block text-lg text-[#6B7280] mt-2 px-4">To</label>
+              <label className="block text-lg text-[#6B7280] mt-2 px-4">
+                To
+              </label>
             )}
           </div>
         </div>

@@ -64,21 +64,63 @@ const App = () => (
           <Route path="/onboarding/ai-intro" element={<OnboardingAIIntro />} />
           <Route path="/onboarding/ai-voice" element={<OnboardingAIVoice />} />
           <Route path="/onboarding/ai-name" element={<OnboardingAIName />} />
-          <Route path="/onboarding/ai-schedule" element={<OnboardingAISchedule />} />
-          <Route path="/onboarding/ai-greeting" element={<OnboardingAIGreeting />} />
-          <Route path="/onboarding/booking-intro" element={<OnboardingBookingIntro />} />
-          <Route path="/onboarding/booking-services" element={<OnboardingBookingServices />} />
-          <Route path="/onboarding/booking-duration" element={<OnboardingBookingDuration />} />
-          <Route path="/onboarding/booking-days" element={<OnboardingBookingDays />} />
-          <Route path="/onboarding/booking-hours" element={<OnboardingBookingHours />} />
-          <Route path="/onboarding/booking-full" element={<OnboardingBookingFull />} />
-          <Route path="/onboarding/faqs-intro" element={<OnboardingFAQsIntro />} />
+          <Route
+            path="/onboarding/ai-schedule"
+            element={<OnboardingAISchedule />}
+          />
+          <Route
+            path="/onboarding/ai-greeting"
+            element={<OnboardingAIGreeting />}
+          />
+          <Route
+            path="/onboarding/booking-intro"
+            element={<OnboardingBookingIntro />}
+          />
+          <Route
+            path="/onboarding/booking-services"
+            element={<OnboardingBookingServices />}
+          />
+          <Route
+            path="/onboarding/booking-duration"
+            element={<OnboardingBookingDuration />}
+          />
+          <Route
+            path="/onboarding/booking-days"
+            element={<OnboardingBookingDays />}
+          />
+          <Route
+            path="/onboarding/booking-hours"
+            element={<OnboardingBookingHours />}
+          />
+          <Route
+            path="/onboarding/booking-full"
+            element={<OnboardingBookingFull />}
+          />
+          <Route
+            path="/onboarding/faqs-intro"
+            element={<OnboardingFAQsIntro />}
+          />
           <Route path="/onboarding/faqs" element={<OnboardingFAQs />} />
-          <Route path="/onboarding/integrations-intro" element={<OnboardingIntegrationsIntro />} />
-          <Route path="/onboarding/integrations-handling" element={<OnboardingIntegrationsHandling />} />
-          <Route path="/onboarding/integrations-summary" element={<OnboardingIntegrationsSummary />} />
-          <Route path="/onboarding/integrations-confirmations" element={<OnboardingIntegrationsConfirmations />} />
-          <Route path="/onboarding/integrations-reminders" element={<OnboardingIntegrationsReminders />} />
+          <Route
+            path="/onboarding/integrations-intro"
+            element={<OnboardingIntegrationsIntro />}
+          />
+          <Route
+            path="/onboarding/integrations-handling"
+            element={<OnboardingIntegrationsHandling />}
+          />
+          <Route
+            path="/onboarding/integrations-summary"
+            element={<OnboardingIntegrationsSummary />}
+          />
+          <Route
+            path="/onboarding/integrations-confirmations"
+            element={<OnboardingIntegrationsConfirmations />}
+          />
+          <Route
+            path="/onboarding/integrations-reminders"
+            element={<OnboardingIntegrationsReminders />}
+          />
           <Route path="/onboarding/complete" element={<OnboardingComplete />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/call-logs" element={<CallLogs />} />

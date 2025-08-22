@@ -19,15 +19,16 @@ export default function OnboardingStep2() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/step1');
+    navigate("/onboarding/step1");
   };
 
   const handleNext = () => {
     if (selectedType || customType) {
       // Store the business type
-      const businessType = selectedType === "Other (Custom)" ? customType : selectedType;
-      sessionStorage.setItem('businessType', businessType);
-      navigate('/onboarding/step3');
+      const businessType =
+        selectedType === "Other (Custom)" ? customType : selectedType;
+      sessionStorage.setItem("businessType", businessType);
+      navigate("/onboarding/step3");
     }
   };
 
@@ -54,7 +55,9 @@ export default function OnboardingStep2() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">What type of business do you run?</h2>
+          <h2 className="text-xl font-bold text-black">
+            What type of business do you run?
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             This helps us personalise your AI agent and suggest common FAQs.
           </p>
@@ -67,18 +70,26 @@ export default function OnboardingStep2() {
             onClick={() => setIsOpen(!isOpen)}
             className="flex items-center justify-between w-full p-4 border-2 border-[#E5E7EB] rounded-xl hover:border-black transition-colors"
           >
-            <span className={`text-lg ${selectedType ? 'text-black' : 'text-[#6B7280]'}`}>
+            <span
+              className={`text-lg ${selectedType ? "text-black" : "text-[#6B7280]"}`}
+            >
               {selectedType || "Select your business type"}
             </span>
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
             >
-              <path d="M18 15C18 15 13.5811 9 12 9C10.4188 9 6 15 6 15" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M18 15C18 15 13.5811 9 12 9C10.4188 9 6 15 6 15"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -94,7 +105,7 @@ export default function OnboardingStep2() {
                   {type}
                 </button>
               ))}
-              
+
               {/* Other Custom Option */}
               <div className="flex items-center gap-3 p-3 px-4">
                 <button

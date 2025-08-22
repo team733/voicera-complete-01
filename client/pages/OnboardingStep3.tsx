@@ -8,21 +8,21 @@ export default function OnboardingStep3() {
 
   useEffect(() => {
     // Load any previously saved business name
-    const savedName = sessionStorage.getItem('businessName');
+    const savedName = sessionStorage.getItem("businessName");
     if (savedName) {
       setBusinessName(savedName);
     }
   }, []);
 
   const handlePrevious = () => {
-    navigate('/onboarding/step2');
+    navigate("/onboarding/step2");
   };
 
   const handleNext = () => {
     if (businessName.trim()) {
       // Store the business name
-      sessionStorage.setItem('businessName', businessName.trim());
-      navigate('/onboarding/step4');
+      sessionStorage.setItem("businessName", businessName.trim());
+      navigate("/onboarding/step4");
     }
   };
 
@@ -41,9 +41,12 @@ export default function OnboardingStep3() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">What's your business name?</h2>
+          <h2 className="text-xl font-bold text-black">
+            What's your business name?
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
-            This is how your AI will introduce your business when it answers calls.
+            This is how your AI will introduce your business when it answers
+            calls.
           </p>
         </div>
 

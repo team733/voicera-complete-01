@@ -5,11 +5,11 @@ export default function OnboardingBookingIntro() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/ai-greeting');
+    navigate("/onboarding/ai-greeting");
   };
 
   const handleNext = () => {
-    navigate('/onboarding/booking-services');
+    navigate("/onboarding/booking-services");
   };
 
   return (
@@ -25,17 +25,53 @@ export default function OnboardingBookingIntro() {
       <div className="flex flex-col items-center gap-8">
         {/* Calendar Icon */}
         <div className="flex items-center justify-center w-20 h-20 bg-[#F3F4F6] border-[1.25px] border-[#E5E7EB] rounded-full">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <g clipPath="url(#clip0_207_125)">
-              <path d="M32.5 6.25H7.5C6.80964 6.25 6.25 6.80964 6.25 7.5V32.5C6.25 33.1904 6.80964 33.75 7.5 33.75H32.5C33.1904 33.75 33.75 33.1904 33.75 32.5V7.5C33.75 6.80964 33.1904 6.25 32.5 6.25Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M27.5 3.75V8.75" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12.5 3.75V8.75" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M6.25 13.75H33.75" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M14.375 23.75L18.125 27.5L25.625 20" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M32.5 6.25H7.5C6.80964 6.25 6.25 6.80964 6.25 7.5V32.5C6.25 33.1904 6.80964 33.75 7.5 33.75H32.5C33.1904 33.75 33.75 33.1904 33.75 32.5V7.5C33.75 6.80964 33.1904 6.25 32.5 6.25Z"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M27.5 3.75V8.75"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12.5 3.75V8.75"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M6.25 13.75H33.75"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M14.375 23.75L18.125 27.5L25.625 20"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </g>
             <defs>
               <clipPath id="clip0_207_125">
-                <rect width="40" height="40" fill="white"/>
+                <rect width="40" height="40" fill="white" />
               </clipPath>
             </defs>
           </svg>

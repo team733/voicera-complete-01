@@ -15,13 +15,13 @@ export default function OnboardingAIVoice() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/ai-intro');
+    navigate("/onboarding/ai-intro");
   };
 
   const handleNext = () => {
     if (selectedVoice) {
-      sessionStorage.setItem('aiVoiceStyle', selectedVoice);
-      navigate('/onboarding/ai-name');
+      sessionStorage.setItem("aiVoiceStyle", selectedVoice);
+      navigate("/onboarding/ai-name");
     }
   };
 
@@ -36,7 +36,9 @@ export default function OnboardingAIVoice() {
     console.log(`Playing voice sample for: ${voiceId}`);
   };
 
-  const selectedVoiceName = voiceOptions.find(v => v.id === selectedVoice)?.name;
+  const selectedVoiceName = voiceOptions.find(
+    (v) => v.id === selectedVoice,
+  )?.name;
   const isNextDisabled = !selectedVoice;
 
   return (
@@ -52,7 +54,9 @@ export default function OnboardingAIVoice() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">What's your preferred AI voice style?</h2>
+          <h2 className="text-xl font-bold text-black">
+            What's your preferred AI voice style?
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             Pick the kind of voice your AI will use on calls.
           </p>
@@ -65,18 +69,26 @@ export default function OnboardingAIVoice() {
             onClick={() => setIsOpen(!isOpen)}
             className="flex items-center justify-between w-full p-4 border-2 border-[#E5E7EB] rounded-xl hover:border-black transition-colors"
           >
-            <span className={`text-lg ${selectedVoice ? 'text-black' : 'text-[#6B7280]'}`}>
+            <span
+              className={`text-lg ${selectedVoice ? "text-black" : "text-[#6B7280]"}`}
+            >
               {selectedVoiceName || "Select your preferred AI voice style"}
             </span>
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
             >
-              <path d="M18 15C18 15 13.5811 9 12 9C10.4188 9 6 15 6 15" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M18 15C18 15 13.5811 9 12 9C10.4188 9 6 15 6 15"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -94,8 +106,19 @@ export default function OnboardingAIVoice() {
                     onClick={(e) => handlePlayVoice(voice.id, e)}
                     className="flex items-center justify-center w-11 h-11 bg-black rounded-xl hover:bg-gray-800 transition-colors"
                   >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15.7425 10.705C15.4479 11.8242 14.0559 12.615 11.2717 14.1968C8.58033 15.7258 7.23466 16.4903 6.15018 16.183C5.70183 16.0559 5.29332 15.8147 4.96386 15.4822C4.16699 14.6782 4.16699 13.1188 4.16699 10C4.16699 6.88117 4.16699 5.32175 4.96386 4.51777C5.29332 4.18538 5.70183 3.94407 6.15018 3.81702C7.23466 3.50971 8.58033 4.27423 11.2717 5.80328C14.0559 7.38498 15.4479 8.17583 15.7425 9.295C15.8641 9.757 15.8641 10.243 15.7425 10.705Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.7425 10.705C15.4479 11.8242 14.0559 12.615 11.2717 14.1968C8.58033 15.7258 7.23466 16.4903 6.15018 16.183C5.70183 16.0559 5.29332 15.8147 4.96386 15.4822C4.16699 14.6782 4.16699 13.1188 4.16699 10C4.16699 6.88117 4.16699 5.32175 4.96386 4.51777C5.29332 4.18538 5.70183 3.94407 6.15018 3.81702C7.23466 3.50971 8.58033 4.27423 11.2717 5.80328C14.0559 7.38498 15.4479 8.17583 15.7425 9.295C15.8641 9.757 15.8641 10.243 15.7425 10.705Z"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </button>
                 </div>

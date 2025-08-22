@@ -8,21 +8,28 @@ export default function SignUp() {
 
   const handleContinue = () => {
     // Store form data in sessionStorage or state management
-    sessionStorage.setItem('signupData', JSON.stringify({ fullName, businessEmail }));
-    navigate('/signup/verify');
+    sessionStorage.setItem(
+      "signupData",
+      JSON.stringify({ fullName, businessEmail }),
+    );
+    navigate("/signup/verify");
   };
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] flex flex-col items-center px-4 py-16">
       {/* Logo/Title */}
       <h1 className="text-4xl font-bold text-black mb-32">Voicera AI</h1>
-      
+
       {/* Sign Up Card */}
       <div className="w-full max-w-lg bg-white rounded-[28px] border-2 border-[#E5E7EB] p-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-black mb-2">Create an Account</h2>
-          <p className="text-xl text-[#737373]">Get started with your Voicera AI dashboard in minutes.</p>
+          <h2 className="text-3xl font-bold text-black mb-2">
+            Create an Account
+          </h2>
+          <p className="text-xl text-[#737373]">
+            Get started with your Voicera AI dashboard in minutes.
+          </p>
         </div>
 
         {/* Form */}
@@ -67,7 +74,9 @@ export default function SignUp() {
 
         {/* Login Link */}
         <div className="text-center mt-7">
-          <span className="text-2xl text-[#6B7280]">Already have an account? </span>
+          <span className="text-2xl text-[#6B7280]">
+            Already have an account?{" "}
+          </span>
           <Link to="/" className="text-2xl text-black font-bold">
             Login
           </Link>

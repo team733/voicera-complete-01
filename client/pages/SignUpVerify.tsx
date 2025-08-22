@@ -9,8 +9,8 @@ export default function SignUpVerify() {
 
   useEffect(() => {
     // Get email from sessionStorage
-    const signupData = JSON.parse(sessionStorage.getItem('signupData') || '{}');
-    setEmail(signupData.businessEmail || 'john@gmail.com');
+    const signupData = JSON.parse(sessionStorage.getItem("signupData") || "{}");
+    setEmail(signupData.businessEmail || "john@gmail.com");
 
     // Countdown timer
     if (countdown > 0) {
@@ -21,36 +21,58 @@ export default function SignUpVerify() {
 
   const handleVerify = () => {
     // Navigate to password creation step
-    navigate('/signup/password');
+    navigate("/signup/password");
   };
 
   const handleCancel = () => {
-    navigate('/signup');
+    navigate("/signup");
   };
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] flex flex-col items-center px-4 py-16">
       {/* Logo/Title */}
       <h1 className="text-4xl font-bold text-black mb-32">Voicera AI</h1>
-      
+
       {/* Verification Modal */}
       <div className="w-full max-w-lg bg-white rounded-2xl border-2 border-[#E5E7EB] p-5 relative">
         {/* Close Button */}
-        <button 
+        <button
           onClick={handleCancel}
           className="absolute top-5 right-5 w-4 h-4"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.3337 2.66699L2.66699 13.3337" stroke="#6B7280" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2.66699 2.66699L13.3337 13.3337" stroke="#6B7280" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.3337 2.66699L2.66699 13.3337"
+              stroke="#6B7280"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2.66699 2.66699L13.3337 13.3337"
+              stroke="#6B7280"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
 
         {/* Header */}
         <div className="text-center mb-6 px-5">
-          <h2 className="text-2xl font-bold text-black mb-2">Verify your identity</h2>
+          <h2 className="text-2xl font-bold text-black mb-2">
+            Verify your identity
+          </h2>
           <p className="text-base text-[#737373] leading-5">
-            We've sent a 6-digit verification code to <span className="font-bold">{email}</span>. Enter it below to verify your identity.
+            We've sent a 6-digit verification code to{" "}
+            <span className="font-bold">{email}</span>. Enter it below to verify
+            your identity.
           </p>
         </div>
 
@@ -59,7 +81,9 @@ export default function SignUpVerify() {
           <div className="space-y-4">
             {/* Code Input */}
             <div className="space-y-3">
-              <label className="block text-lg font-semibold text-black">Enter Code</label>
+              <label className="block text-lg font-semibold text-black">
+                Enter Code
+              </label>
               <input
                 type="text"
                 value={verificationCode}
@@ -72,8 +96,12 @@ export default function SignUpVerify() {
 
             {/* Resend Timer */}
             <div className="text-center">
-              <span className="text-base text-[#737373]">Didn't receive the code? Resend in </span>
-              <span className="text-base font-bold text-black">{countdown}s</span>
+              <span className="text-base text-[#737373]">
+                Didn't receive the code? Resend in{" "}
+              </span>
+              <span className="text-base font-bold text-black">
+                {countdown}s
+              </span>
             </div>
           </div>
 

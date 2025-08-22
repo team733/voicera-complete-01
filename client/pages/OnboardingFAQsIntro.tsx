@@ -4,7 +4,7 @@ export default function OnboardingFAQsIntro() {
   const navigate = useNavigate();
 
   const handleLetsGo = () => {
-    navigate('/onboarding/faqs');
+    navigate("/onboarding/faqs");
   };
 
   return (
@@ -17,10 +17,34 @@ export default function OnboardingFAQsIntro() {
         </h1>
         <div className="flex-1 flex justify-end">
           <button className="flex items-center gap-3 px-4 py-2 bg-[#F3F4F6] rounded-xl">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.75 3.125H3.75V16.875H8.75" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M8.75 10H17.5" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M14.375 6.875L17.5 10L14.375 13.125" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.75 3.125H3.75V16.875H8.75"
+                stroke="#6B7280"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8.75 10H17.5"
+                stroke="#6B7280"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M14.375 6.875L17.5 10L14.375 13.125"
+                stroke="#6B7280"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             <span className="text-base text-[#6B7280]">Logout</span>
           </button>
@@ -33,9 +57,21 @@ export default function OnboardingFAQsIntro() {
           <div className="flex flex-col items-center gap-8">
             {/* Icon */}
             <div className="w-20 h-20 bg-[#F3F4F6] border border-[#E5E7EB] rounded-full flex items-center justify-center">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 25V22.5C24.8328 22.5 28.75 19.1422 28.75 15C28.75 10.8578 24.8328 7.5 20 7.5C15.1672 7.5 11.25 10.8578 11.25 15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="20" cy="32.5" r="2.5" fill="black"/>
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 25V22.5C24.8328 22.5 28.75 19.1422 28.75 15C28.75 10.8578 24.8328 7.5 20 7.5C15.1672 7.5 11.25 10.8578 11.25 15"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <circle cx="20" cy="32.5" r="2.5" fill="black" />
               </svg>
             </div>
 
@@ -58,9 +94,27 @@ export default function OnboardingFAQsIntro() {
               className="w-full h-14 bg-black text-white text-lg font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-gray-800 transition-colors"
             >
               Let's go
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 12H4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M15.0001 17C15.0001 17 20 13.3176 20 12C20 10.6824 15 7 15 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 12H4"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M15.0001 17C15.0001 17 20 13.3176 20 12C20 10.6824 15 7 15 7"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>

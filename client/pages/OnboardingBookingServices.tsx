@@ -4,10 +4,10 @@ import OnboardingLayout from "@/components/OnboardingLayout";
 
 const serviceOptions = [
   "Appointment",
-  "Consultation", 
+  "Consultation",
   "Service",
   "Class",
-  "Other"
+  "Other",
 ];
 
 export default function OnboardingBookingServices() {
@@ -17,7 +17,7 @@ export default function OnboardingBookingServices() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/booking-intro');
+    navigate("/onboarding/booking-intro");
   };
 
   const handleNext = () => {
@@ -26,22 +26,23 @@ export default function OnboardingBookingServices() {
       if (customService.trim()) {
         allServices.push(customService.trim());
       }
-      sessionStorage.setItem('bookingServices', JSON.stringify(allServices));
-      navigate('/onboarding/booking-duration');
+      sessionStorage.setItem("bookingServices", JSON.stringify(allServices));
+      navigate("/onboarding/booking-duration");
     }
   };
 
   const handleServiceToggle = (service: string) => {
-    setSelectedServices(prev => 
-      prev.includes(service) 
-        ? prev.filter(s => s !== service)
-        : [...prev, service]
+    setSelectedServices((prev) =>
+      prev.includes(service)
+        ? prev.filter((s) => s !== service)
+        : [...prev, service],
     );
   };
 
-  const displayText = selectedServices.length > 0 
-    ? `${selectedServices.length} service${selectedServices.length > 1 ? 's' : ''} selected`
-    : "Select the services you want your customers to book";
+  const displayText =
+    selectedServices.length > 0
+      ? `${selectedServices.length} service${selectedServices.length > 1 ? "s" : ""} selected`
+      : "Select the services you want your customers to book";
 
   const isNextDisabled = selectedServices.length === 0 && !customService.trim();
 
@@ -58,7 +59,9 @@ export default function OnboardingBookingServices() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">What can customers book?</h2>
+          <h2 className="text-xl font-bold text-black">
+            What can customers book?
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             Pick the type of appointments or services your AI will book.
           </p>
@@ -71,18 +74,26 @@ export default function OnboardingBookingServices() {
             onClick={() => setIsOpen(!isOpen)}
             className="flex items-center justify-between w-full p-4 border-2 border-[#E5E7EB] rounded-xl hover:border-black transition-colors"
           >
-            <span className={`text-lg ${selectedServices.length > 0 ? 'text-black' : 'text-[#6B7280]'}`}>
+            <span
+              className={`text-lg ${selectedServices.length > 0 ? "text-black" : "text-[#6B7280]"}`}
+            >
               {displayText}
             </span>
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
             >
-              <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -97,16 +108,34 @@ export default function OnboardingBookingServices() {
                         onClick={() => handleServiceToggle(service)}
                         className="flex items-center gap-2.5"
                       >
-                        <div className={`w-4 h-4 border-[1.5px] rounded flex items-center justify-center ${
-                          selectedServices.includes(service) ? 'border-black bg-black' : 'border-[#6B7280]'
-                        }`}>
+                        <div
+                          className={`w-4 h-4 border-[1.5px] rounded flex items-center justify-center ${
+                            selectedServices.includes(service)
+                              ? "border-black bg-black"
+                              : "border-[#6B7280]"
+                          }`}
+                        >
                           {selectedServices.includes(service) && (
-                            <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            <svg
+                              width="8"
+                              height="6"
+                              viewBox="0 0 8 6"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M1 3L3 5L7 1"
+                                stroke="white"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
                             </svg>
                           )}
                         </div>
-                        <span className="text-lg text-[#6B7280]">{service}</span>
+                        <span className="text-lg text-[#6B7280]">
+                          {service}
+                        </span>
                       </button>
                       <input
                         type="text"
@@ -121,12 +150,28 @@ export default function OnboardingBookingServices() {
                       onClick={() => handleServiceToggle(service)}
                       className="w-full flex items-center gap-2.5 p-3 px-4 hover:bg-gray-50 transition-colors"
                     >
-                      <div className={`w-4 h-4 border-[1.5px] rounded flex items-center justify-center ${
-                        selectedServices.includes(service) ? 'border-black bg-black' : 'border-[#6B7280]'
-                      }`}>
+                      <div
+                        className={`w-4 h-4 border-[1.5px] rounded flex items-center justify-center ${
+                          selectedServices.includes(service)
+                            ? "border-black bg-black"
+                            : "border-[#6B7280]"
+                        }`}
+                      >
                         {selectedServices.includes(service) && (
-                          <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg
+                            width="8"
+                            height="6"
+                            viewBox="0 0 8 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M1 3L3 5L7 1"
+                              stroke="white"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         )}
                       </div>

@@ -5,36 +5,38 @@ import OnboardingLayout from "@/components/OnboardingLayout";
 export default function OnboardingFAQs() {
   const [selectedFAQs, setSelectedFAQs] = useState<string[]>([]);
   const [customQuestion, setCustomQuestion] = useState("");
-  const [customAnswers, setCustomAnswers] = useState<{[key: string]: string}>({});
+  const [customAnswers, setCustomAnswers] = useState<{ [key: string]: string }>(
+    {},
+  );
   const navigate = useNavigate();
 
   const predefinedFAQs = [
     "What are your prices?",
     "Where are you located?",
-    "What are your opening hours?"
+    "What are your opening hours?",
   ];
 
   const handlePrevious = () => {
-    navigate('/onboarding/faqs-intro');
+    navigate("/onboarding/faqs-intro");
   };
 
   const handleNext = () => {
     const faqData = {
       selectedFAQs,
-      customAnswers
+      customAnswers,
     };
-    sessionStorage.setItem('faqData', JSON.stringify(faqData));
-    navigate('/onboarding/integrations-intro');
+    sessionStorage.setItem("faqData", JSON.stringify(faqData));
+    navigate("/onboarding/integrations-intro");
   };
 
   const handleFAQToggle = (faq: string) => {
-    setSelectedFAQs(prev => {
+    setSelectedFAQs((prev) => {
       if (prev.includes(faq)) {
         // Remove FAQ and its answer
         const newCustomAnswers = { ...customAnswers };
         delete newCustomAnswers[faq];
         setCustomAnswers(newCustomAnswers);
-        return prev.filter(item => item !== faq);
+        return prev.filter((item) => item !== faq);
       } else {
         return [...prev, faq];
       }
@@ -42,15 +44,15 @@ export default function OnboardingFAQs() {
   };
 
   const handleAnswerChange = (faq: string, answer: string) => {
-    setCustomAnswers(prev => ({
+    setCustomAnswers((prev) => ({
       ...prev,
-      [faq]: answer
+      [faq]: answer,
     }));
   };
 
   const handleAddCustomFAQ = () => {
     if (customQuestion.trim()) {
-      setSelectedFAQs(prev => [...prev, customQuestion.trim()]);
+      setSelectedFAQs((prev) => [...prev, customQuestion.trim()]);
       setCustomQuestion("");
     }
   };
@@ -85,18 +87,16 @@ export default function OnboardingFAQs() {
                 <button
                   onClick={() => handleFAQToggle(faq)}
                   className={`w-6 h-6 border-2 rounded-sm flex items-center justify-center ${
-                    selectedFAQs.includes(faq) 
-                      ? 'border-black bg-black' 
-                      : 'border-[#E5E7EB] bg-white'
+                    selectedFAQs.includes(faq)
+                      ? "border-black bg-black"
+                      : "border-[#E5E7EB] bg-white"
                   }`}
                 >
                   {selectedFAQs.includes(faq) && (
                     <div className="w-5 h-5 bg-black rounded-sm"></div>
                   )}
                 </button>
-                <span className="text-lg text-black leading-7">
-                  {faq}
-                </span>
+                <span className="text-lg text-black leading-7">{faq}</span>
               </div>
 
               {/* Answer Input */}
@@ -123,19 +123,31 @@ export default function OnboardingFAQs() {
               onChange={(e) => setCustomQuestion(e.target.value)}
               className="w-full p-4 bg-[#F3F4F6] rounded-xl text-lg text-[#6B7280] placeholder-[#6B7280] focus:outline-none focus:text-black"
               onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+                if (e.key === "Enter") {
                   handleAddCustomFAQ();
                 }
               }}
             />
-            
+
             <button
               onClick={handleAddCustomFAQ}
               disabled={!customQuestion.trim()}
               className="flex items-center justify-center gap-3 px-5 py-[14px] bg-black text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-800 transition-colors"
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.00001 1V11M11 6.0007H1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.00001 1V11M11 6.0007H1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               <span className="text-sm font-bold leading-[18px]">
                 Add custom FAQs

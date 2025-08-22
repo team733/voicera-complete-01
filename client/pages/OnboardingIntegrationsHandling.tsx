@@ -10,17 +10,17 @@ export default function OnboardingIntegrationsHandling() {
   const options = [
     "Politely transfer the call to you (or your voicemail)",
     "Take a message and email it to you",
-    "Offer to call the customer back later"
+    "Offer to call the customer back later",
   ];
 
   const handlePrevious = () => {
-    navigate('/onboarding/integrations-intro');
+    navigate("/onboarding/integrations-intro");
   };
 
   const handleNext = () => {
     if (selectedOption) {
-      sessionStorage.setItem('aiHandlingUnknown', selectedOption);
-      navigate('/onboarding/integrations-summary');
+      sessionStorage.setItem("aiHandlingUnknown", selectedOption);
+      navigate("/onboarding/integrations-summary");
     }
   };
 
@@ -59,14 +59,28 @@ export default function OnboardingIntegrationsHandling() {
               onClick={() => setShowDropdown(!showDropdown)}
               className="flex justify-between items-center w-full p-4 border-2 border-[#E5E7EB] rounded-xl text-left"
             >
-              <span className={`text-lg leading-7 ${selectedOption ? 'text-black' : 'text-[#6B7280]'}`}>
+              <span
+                className={`text-lg leading-7 ${selectedOption ? "text-black" : "text-[#6B7280]"}`}
+              >
                 {selectedOption || "Select what the AI should do"}
               </span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#141B34"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
-            
+
             {showDropdown && (
               <div className="absolute top-full left-0 right-0 mt-2 border-2 border-[#E5E7EB] rounded-xl bg-white z-10">
                 {options.map((option, index) => (

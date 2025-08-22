@@ -15,15 +15,17 @@ export default function OnboardingAISchedule() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/ai-name');
+    navigate("/onboarding/ai-name");
   };
 
   const handleNext = () => {
-    const finalSchedule = selectedSchedule === "custom" ? customSchedule : 
-                         scheduleOptions.find(s => s.id === selectedSchedule)?.name;
+    const finalSchedule =
+      selectedSchedule === "custom"
+        ? customSchedule
+        : scheduleOptions.find((s) => s.id === selectedSchedule)?.name;
     if (finalSchedule) {
-      sessionStorage.setItem('aiCallSchedule', finalSchedule);
-      navigate('/onboarding/ai-greeting');
+      sessionStorage.setItem("aiCallSchedule", finalSchedule);
+      navigate("/onboarding/ai-greeting");
     }
   };
 
@@ -35,9 +37,14 @@ export default function OnboardingAISchedule() {
     }
   };
 
-  const selectedScheduleName = scheduleOptions.find(s => s.id === selectedSchedule)?.name;
-  const displayValue = selectedSchedule === "custom" ? "Custom schedule" : selectedScheduleName;
-  const isNextDisabled = !selectedSchedule || (selectedSchedule === "custom" && !customSchedule.trim());
+  const selectedScheduleName = scheduleOptions.find(
+    (s) => s.id === selectedSchedule,
+  )?.name;
+  const displayValue =
+    selectedSchedule === "custom" ? "Custom schedule" : selectedScheduleName;
+  const isNextDisabled =
+    !selectedSchedule ||
+    (selectedSchedule === "custom" && !customSchedule.trim());
 
   return (
     <OnboardingLayout
@@ -52,7 +59,9 @@ export default function OnboardingAISchedule() {
       <div className="flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">When should your AI answer calls?</h2>
+          <h2 className="text-xl font-bold text-black">
+            When should your AI answer calls?
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             We'll make sure it only answers when you want it to.
           </p>
@@ -65,18 +74,26 @@ export default function OnboardingAISchedule() {
             onClick={() => setIsOpen(!isOpen)}
             className="flex items-center justify-between w-full p-4 border-2 border-[#E5E7EB] rounded-xl hover:border-black transition-colors"
           >
-            <span className={`text-lg ${selectedSchedule ? 'text-black' : 'text-[#6B7280]'}`}>
+            <span
+              className={`text-lg ${selectedSchedule ? "text-black" : "text-[#6B7280]"}`}
+            >
               {displayValue || "Select when you want your AI to answer calls"}
             </span>
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
             >
-              <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 

@@ -17,21 +17,21 @@ export default function OnboardingBookingDays() {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate('/onboarding/booking-duration');
+    navigate("/onboarding/booking-duration");
   };
 
   const handleNext = () => {
     if (selectedDays.length > 0) {
-      sessionStorage.setItem('businessDays', JSON.stringify(selectedDays));
-      navigate('/onboarding/booking-hours');
+      sessionStorage.setItem("businessDays", JSON.stringify(selectedDays));
+      navigate("/onboarding/booking-hours");
     }
   };
 
   const handleDayToggle = (dayShort: string) => {
-    setSelectedDays(prev => 
-      prev.includes(dayShort) 
-        ? prev.filter(d => d !== dayShort)
-        : [...prev, dayShort]
+    setSelectedDays((prev) =>
+      prev.includes(dayShort)
+        ? prev.filter((d) => d !== dayShort)
+        : [...prev, dayShort],
     );
   };
 
@@ -50,7 +50,9 @@ export default function OnboardingBookingDays() {
       <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-black">Select your business days</h2>
+          <h2 className="text-xl font-bold text-black">
+            Select your business days
+          </h2>
           <p className="text-base italic text-[#737373] leading-6">
             Choose the days your business is open for customers.
           </p>
@@ -64,8 +66,8 @@ export default function OnboardingBookingDays() {
               onClick={() => handleDayToggle(day.short)}
               className={`px-4 py-2.5 border-2 rounded-xl text-lg transition-colors ${
                 selectedDays.includes(day.short)
-                  ? 'border-black bg-black text-white' 
-                  : 'border-[#E5E7EB] text-[#6B7280] hover:border-gray-400'
+                  ? "border-black bg-black text-white"
+                  : "border-[#E5E7EB] text-[#6B7280] hover:border-gray-400"
               }`}
             >
               {day.short}
