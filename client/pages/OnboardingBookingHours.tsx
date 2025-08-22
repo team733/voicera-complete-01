@@ -14,9 +14,7 @@ export default function OnboardingBookingHours() {
   const handleNext = () => {
     if (fromTime && toTime) {
       sessionStorage.setItem('businessHours', JSON.stringify({ from: fromTime, to: toTime }));
-      // Navigate to next major step or complete booking setup
-      alert('Booking setup completed! This would typically redirect to the next major step.');
-      navigate('/');
+      navigate('/onboarding/booking-full');
     }
   };
 
