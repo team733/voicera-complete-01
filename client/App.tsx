@@ -26,6 +26,10 @@ import OnboardingBookingServices from "./pages/OnboardingBookingServices";
 import OnboardingBookingDuration from "./pages/OnboardingBookingDuration";
 import OnboardingBookingDays from "./pages/OnboardingBookingDays";
 import OnboardingBookingHours from "./pages/OnboardingBookingHours";
+import OnboardingBookingFull from "./pages/OnboardingBookingFull";
+import OnboardingFAQsIntro from "./pages/OnboardingFAQsIntro";
+import OnboardingFAQs from "./pages/OnboardingFAQs";
+import OnboardingIntegrationsIntro from "./pages/OnboardingIntegrationsIntro";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
