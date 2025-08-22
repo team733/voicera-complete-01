@@ -16,6 +16,11 @@ import OnboardingStep2 from "./pages/OnboardingStep2";
 import OnboardingStep3 from "./pages/OnboardingStep3";
 import OnboardingStep4 from "./pages/OnboardingStep4";
 import OnboardingStep5 from "./pages/OnboardingStep5";
+import OnboardingAIIntro from "./pages/OnboardingAIIntro";
+import OnboardingAIVoice from "./pages/OnboardingAIVoice";
+import OnboardingAIName from "./pages/OnboardingAIName";
+import OnboardingAISchedule from "./pages/OnboardingAISchedule";
+import OnboardingAIGreeting from "./pages/OnboardingAIGreeting";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +42,11 @@ const App = () => (
           <Route path="/onboarding/step3" element={<OnboardingStep3 />} />
           <Route path="/onboarding/step4" element={<OnboardingStep4 />} />
           <Route path="/onboarding/step5" element={<OnboardingStep5 />} />
+          <Route path="/onboarding/ai-intro" element={<OnboardingAIIntro />} />
+          <Route path="/onboarding/ai-voice" element={<OnboardingAIVoice />} />
+          <Route path="/onboarding/ai-name" element={<OnboardingAIName />} />
+          <Route path="/onboarding/ai-schedule" element={<OnboardingAISchedule />} />
+          <Route path="/onboarding/ai-greeting" element={<OnboardingAIGreeting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
