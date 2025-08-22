@@ -80,7 +80,7 @@ const AgentManagement: React.FC = () => {
         }).replace(',', ',')
       };
 
-      setTestCalls(prev => [...prev, newCall]);
+      setTestCalls(prev => [newCall, ...prev]);
     }, 4000);
   };
 
