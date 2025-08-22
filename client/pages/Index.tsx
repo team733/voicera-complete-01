@@ -59,7 +59,7 @@ export default function Index() {
         </div>
 
         {/* Form */}
-        <div className="space-y-7">
+        <form onSubmit={handleLogin} className="space-y-7">
           {/* Email Field */}
           <div className="space-y-3">
             <label className="block text-lg text-black">Email</label>
@@ -129,11 +129,12 @@ export default function Index() {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-black text-white text-lg font-semibold py-4 px-5 rounded-xl hover:bg-gray-800 transition-colors"
+            disabled={isLoading}
+            className="w-full bg-black text-white text-lg font-semibold py-4 px-5 rounded-xl hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Login
+            {isLoading ? 'Logging in...' : 'Login'}
           </button>
-        </div>
+        </form>
 
         {/* Sign Up Link */}
         <div className="text-center mt-7">
