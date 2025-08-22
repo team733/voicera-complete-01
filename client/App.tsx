@@ -37,6 +37,7 @@ import OnboardingIntegrationsReminders from "./pages/OnboardingIntegrationsRemin
 import OnboardingComplete from "./pages/OnboardingComplete";
 import Dashboard from "./pages/Dashboard";
 import CallLogs from "./pages/CallLogs";
+import DailySummary from "./pages/DailySummary";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
