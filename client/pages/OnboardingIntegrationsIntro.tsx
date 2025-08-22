@@ -4,9 +4,7 @@ export default function OnboardingIntegrationsIntro() {
   const navigate = useNavigate();
 
   const handleLetsGo = () => {
-    // This would typically complete the onboarding flow
-    alert('Onboarding completed! This would typically redirect to the main application.');
-    navigate('/');
+    navigate('/onboarding/integrations-handling');
   };
 
   return (
