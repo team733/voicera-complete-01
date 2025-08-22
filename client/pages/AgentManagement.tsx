@@ -5,6 +5,15 @@ const AgentManagement: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basic-info');
   const [isAgentLive, setIsAgentLive] = useState(true);
+  const [isTestMode, setIsTestMode] = useState(false);
+  const [showTestCallModal, setShowTestCallModal] = useState(false);
+  const [testCalls, setTestCalls] = useState<Array<{
+    id: string;
+    name: string;
+    phone: string;
+    duration: string;
+    timestamp: string;
+  }>>([]);
   const [faqs, setFaqs] = useState([
     { id: 1, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
     { id: 2, question: 'Q1. Agent Management', answer: 'ANS1. Customize your AI agent\'s knowledge base and behavior', checked: false },
