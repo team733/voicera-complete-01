@@ -15,6 +15,14 @@ const Dashboard: React.FC = () => {
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
 
+  // Check if user is logged in
+  useEffect(() => {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+      navigate('/');
+    }
+  }, [navigate]);
+
   // Mock data - in a real app this would come from an API
   // Start with sample data to show the normal dashboard state
   const [calls, setCalls] = useState<Call[]>([
