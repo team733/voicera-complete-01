@@ -43,6 +43,48 @@ const AgentManagement: React.FC = () => {
     navigate('/');
   };
 
+  // Test Agent handlers
+  const handleTestAgentClick = () => {
+    setIsTestMode(true);
+  };
+
+  const handleStartTestCall = () => {
+    setShowTestCallModal(true);
+
+    // Simulate call duration of 3-5 seconds
+    setTimeout(() => {
+      setShowTestCallModal(false);
+
+      // Add new test call to the list
+      const newCall = {
+        id: `Test Call-${String(testCalls.length + 1).padStart(3, '0')}`,
+        name: `Test Call-${String(testCalls.length + 1).padStart(3, '0')}`,
+        phone: `+1 (555) ${Math.floor(Math.random() * 900 + 100)}-${Math.floor(Math.random() * 9000 + 1000)}`,
+        duration: `${Math.floor(Math.random() * 4) + 1}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}`,
+        timestamp: new Date().toLocaleString('en-US', {
+          month: '2-digit',
+          day: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        }).replace(',', ',')
+      };
+
+      setTestCalls(prev => [...prev, newCall]);
+    }, 4000);
+  };
+
+  const testScenarios = [
+    "I'd like to book an appointment",
+    "What are your business hours?",
+    "How much does a consultation cost?",
+    "Where are you located?",
+    "I need to cancel my appointment",
+    "What services do you offer?"
+  ];
+
   const renderBasicInfo = () => (
     <div className="space-y-5">
       {/* Section Header */}
