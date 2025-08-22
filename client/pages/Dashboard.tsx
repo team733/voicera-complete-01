@@ -17,6 +17,7 @@ const Dashboard: React.FC = () => {
   const [toDate, setToDate] = useState('');
 
   // Mock data - in a real app this would come from an API
+  // Set to empty array initially to show the empty state, can be toggled for testing
   const [calls] = useState<Call[]>([
     { id: '1000', number: '16:54:03', status: 'booked' },
     { id: '1001', number: '16:55:10', status: 'dropped' },
