@@ -396,7 +396,7 @@ const Dashboard: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-3xl font-semibold text-black mb-2">0</div>
+                  <div className="text-3xl font-semibold text-black mb-2">{calls.filter(call => call.status === 'booked').length}</div>
                   <div className="text-gray-500">Appointments Scheduled</div>
                 </div>
               </div>
