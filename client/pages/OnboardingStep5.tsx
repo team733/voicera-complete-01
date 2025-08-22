@@ -28,11 +28,9 @@ export default function OnboardingStep5() {
     sessionStorage.setItem('primaryLocation', primaryLocation.trim());
     sessionStorage.setItem('secondLocation', secondLocation.trim());
     sessionStorage.setItem('additionalLocations', JSON.stringify(additionalLocations));
-    
-    // Navigate to next step (or complete onboarding)
-    // For now, we'll show a completion message
-    alert('Onboarding completed! This would typically redirect to the main dashboard.');
-    navigate('/');
+
+    // Navigate to AI personality configuration
+    navigate('/onboarding/ai-intro');
   };
 
   const handleAddMoreLocations = () => {
